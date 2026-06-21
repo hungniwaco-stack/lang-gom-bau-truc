@@ -727,12 +727,22 @@
       text-align: center;
     }
     .artisan-avatar {
-      height: 180px;
+      height: 260px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 4rem;
+      position: relative;
     }
+    .artisan-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .artisan-card:hover .artisan-avatar img { transform: scale(1.05); }
     .artisan-avatar-1 { background: linear-gradient(135deg, #D35400, #8B3A0F); }
     .artisan-avatar-2 { background: linear-gradient(135deg, #2C3E50, #4A6080); }
     .artisan-avatar-3 { background: linear-gradient(135deg, #8B3A0F, #C0651A); }
@@ -923,31 +933,32 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto auto;
-      gap: 12px;
+      gap: 10px;
     }
     .gallery-item {
       border-radius: 10px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
       cursor: pointer;
-      transition: transform 0.2s, filter 0.2s;
+      position: relative;
+      background: #d4b89a;
     }
-    .gallery-item:hover { transform: scale(1.02); filter: brightness(1.1); }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s, filter 0.35s;
+    }
+    .gallery-item:hover img { transform: scale(1.07); filter: brightness(1.08); }
     .gallery-item.tall { grid-row: span 2; }
     .gallery-item.wide { grid-column: span 2; }
+    .gallery-item { height: 200px; }
+    .gallery-item.tall { height: auto; }
 
-    .g1 { background: linear-gradient(135deg, #D35400, #A84300); height: 200px; }
-    .g2 { background: linear-gradient(135deg, #2C3E50, #1a2634); height: 200px; }
-    .g3 { background: linear-gradient(135deg, #F39C12, #E67E22); height: 200px; }
-    .g4 { background: linear-gradient(135deg, #8B3A0F, #5A1F08); height: 200px; }
-    .g5 { background: linear-gradient(135deg, #C0651A, #D35400); height: 200px; }
-    .g6 { background: linear-gradient(135deg, #4A6080, #2C3E50); height: 200px; }
-    .g7 { background: linear-gradient(135deg, #D35400, #F39C12); height: 200px; }
-    .g8 { background: linear-gradient(135deg, #1a2634, #4A6080); height: 200px; }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 1; }
+      .gallery-item.tall { grid-row: span 1; }
+    }
 
     .gallery-note {
       text-align: center;
@@ -1705,42 +1716,42 @@
     </div>
     <div class="artisans-grid">
       <div class="artisan-card fade-up">
-        <div class="artisan-avatar artisan-avatar-1">👩</div>
+        <div class="artisan-avatar artisan-avatar-1">
+          <img src="images/nn01.jpg" alt="Cụ Trương Thị Gạch - Nghệ nhân làng gốm Chăm Bàu Trúc" onerror="this.style.display='none'" />
+        </div>
         <div class="artisan-body">
-          <h3 data-lang="vi">Nghệ nhân tiêu biểu 1</h3>
-          <h3 data-lang="en">Featured Artisan 1</h3>
+          <h3 data-lang="vi">Cụ Trương Thị Gạch</h3>
+          <h3 data-lang="en">Artisan Truong Thi Gach</h3>
           <div class="artisan-title" data-lang="vi">Nghệ nhân Ưu tú</div>
           <div class="artisan-title" data-lang="en">Distinguished Artisan</div>
-          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
-          <p data-lang="en">Detailed information is being collected and updated.</p>
-          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
-          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+          <p data-lang="vi">Biểu tượng sống của làng gốm Bàu Trúc — người gìn giữ kỹ thuật làm gốm thủ công truyền thống của người Chăm qua nhiều thế hệ.</p>
+          <p data-lang="en">A living symbol of Bau Truc pottery — keeper of traditional Cham hand-building techniques passed through generations.</p>
         </div>
       </div>
       <div class="artisan-card fade-up">
-        <div class="artisan-avatar artisan-avatar-2">👩</div>
+        <div class="artisan-avatar artisan-avatar-2">
+          <img src="images/nn02.jpg" alt="Nghệ nhân Chăm làm gốm tại sạp" onerror="this.style.display='none'" />
+        </div>
         <div class="artisan-body">
           <h3 data-lang="vi">Nghệ nhân tiêu biểu 2</h3>
           <h3 data-lang="en">Featured Artisan 2</h3>
           <div class="artisan-title" data-lang="vi">Nghệ nhân Nhân dân</div>
           <div class="artisan-title" data-lang="en">People's Artisan</div>
-          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
-          <p data-lang="en">Detailed information is being collected and updated.</p>
-          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
-          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+          <p data-lang="vi">Trình diễn kỹ thuật "làm bằng tay, xoay bằng mông" — đặc trưng độc nhất của gốm Chăm Bàu Trúc không nơi nào có được.</p>
+          <p data-lang="en">Demonstrating the "hand-built, hip-turned" technique — the unique hallmark of Bau Truc Cham pottery found nowhere else in the world.</p>
         </div>
       </div>
       <div class="artisan-card fade-up">
-        <div class="artisan-avatar artisan-avatar-3">👩</div>
+        <div class="artisan-avatar artisan-avatar-3">
+          <img src="images/nn03.jpg" alt="Nghệ nhân Chăm vuốt bình gốm" onerror="this.style.display='none'" />
+        </div>
         <div class="artisan-body">
           <h3 data-lang="vi">Nghệ nhân tiêu biểu 3</h3>
           <h3 data-lang="en">Featured Artisan 3</h3>
           <div class="artisan-title" data-lang="vi">Thế hệ kế thừa</div>
           <div class="artisan-title" data-lang="en">Next Generation</div>
-          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
-          <p data-lang="en">Detailed information is being collected and updated.</p>
-          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
-          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+          <p data-lang="vi">Thế hệ nghệ nhân trẻ đang tiếp nối ngọn lửa nghề — từng đường vuốt, từng vòng đất sét là sự kế thừa ngàn năm văn hóa Chăm.</p>
+          <p data-lang="en">The next generation of artisans keeping the craft flame alive — each hand movement, each clay coil carries forward a thousand years of Cham heritage.</p>
         </div>
       </div>
     </div>
@@ -1760,14 +1771,16 @@
       <h2 class="section-title" data-lang="en">Moments of Bau Truc</h2>
     </div>
     <div class="gallery-grid fade-up">
-      <div class="gallery-item g1">🏺</div>
-      <div class="gallery-item g2">🔥</div>
-      <div class="gallery-item g3">🌾</div>
-      <div class="gallery-item g4">🖐</div>
-      <div class="gallery-item g5 wide">💃</div>
-      <div class="gallery-item g6">🏯</div>
-      <div class="gallery-item g7">🎶</div>
-      <div class="gallery-item g8">🌅</div>
+      <div class="gallery-item tall"><img src="images/01.jpg" alt="Gốm Chăm Bàu Trúc" /></div>
+      <div class="gallery-item"><img src="images/02.jpg" alt="Nghệ nhân làm gốm" /></div>
+      <div class="gallery-item"><img src="images/03.jpg" alt="Nung gốm lộ thiên" /></div>
+      <div class="gallery-item"><img src="images/04.jpg" alt="Sản phẩm gốm Chăm" /></div>
+      <div class="gallery-item"><img src="images/05.jpg" alt="Làng gốm Bàu Trúc" /></div>
+      <div class="gallery-item wide"><img src="images/06.jpg" alt="Văn hóa Chăm" /></div>
+      <div class="gallery-item"><img src="images/07.jpg" alt="Tháp Chăm" /></div>
+      <div class="gallery-item"><img src="images/08.jpg" alt="Lễ hội Chăm" /></div>
+      <div class="gallery-item"><img src="images/09.jpg" alt="Nghệ thuật Chăm" /></div>
+      <div class="gallery-item"><img src="images/10.jpg" alt="Di sản UNESCO" /></div>
     </div>
     <p class="gallery-note" data-lang="vi">📸 Ảnh thực tế đang được cập nhật. Nguồn ảnh tham khảo: VOV, Báo Nhân Dân, Báo Sức khỏe & Đời sống.</p>
     <p class="gallery-note" data-lang="en">📸 Real photos being updated. Photo sources: VOV, Nhan Dan Newspaper, Health & Life Magazine.</p>
