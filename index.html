@@ -779,22 +779,28 @@
       gap: 48px;
       align-items: start;
     }
-    .map-placeholder {
+    .map-embed {
+      position: relative;
       aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #e8d5c4, #d4b89a);
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 12px;
-      color: var(--charcoal);
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 24px;
-      border: 2px dashed var(--border);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
-    .map-placeholder .map-icon { font-size: 3rem; opacity: 0.5; }
+    .map-open-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: var(--terra);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .map-open-btn:hover { background: #b94600; }
 
     .visit-info-list {
       display: flex;
@@ -1804,14 +1810,15 @@
       <p class="section-subtitle" data-lang="en">Bau Truc Pottery Village welcomes visitors year-round in Ninh Phuoc Commune, Khanh Hoa Province.</p>
     </div>
     <div class="visit-grid">
-      <div class="map-placeholder fade-up">
-        <span class="map-icon">🗺</span>
-        <strong data-lang="vi">Bản đồ Làng Gốm Bàu Trúc</strong>
-        <strong data-lang="en">Bau Truc Pottery Village Map</strong>
-        <p data-lang="vi">Xã Ninh Phước, Tỉnh Khánh Hòa<br/>Tọa độ GPS đang cập nhật</p>
-        <p data-lang="en">Ninh Phuoc Commune, Khanh Hoa Province<br/>GPS coordinates being updated</p>
-        <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top:8px" data-lang="vi">Mở Google Maps</a>
-        <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top:8px" data-lang="en">Open Google Maps</a>
+      <div class="map-embed fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.7!2d108.9869!3d11.5547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170734b2b2b2b2b%3A0x0!2zTMOgbmcgR-G7kW0gQsOgdSBUcsO6Yw!5e0!3m2!1svi!2svn!4v1687300000000!5m2!1svi!2svn"
+          width="100%" height="100%" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Làng Gốm Bàu Trúc - Google Maps">
+        </iframe>
+        <a href="https://maps.google.com/?q=L%C3%A0ng+G%E1%BB%91m+B%C3%A0u+Tr%C3%BAc,+Ninh+Ph%C6%B0%E1%BB%9Bc,+Ninh+Thu%E1%BA%ADn" target="_blank" rel="noopener" class="map-open-btn" data-lang="vi">Mở Google Maps ↗</a>
+        <a href="https://maps.google.com/?q=Bau+Truc+Pottery+Village,+Ninh+Phuoc,+Ninh+Thuan,+Vietnam" target="_blank" rel="noopener" class="map-open-btn" data-lang="en">Open Google Maps ↗</a>
       </div>
       <div class="visit-info-list fade-up">
         <div class="visit-info-item">
