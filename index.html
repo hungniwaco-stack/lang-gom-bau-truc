@@ -985,25 +985,33 @@
 
     /* ─── CONTACT ─── */
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      display: flex;
+      justify-content: center;
     }
-    .contact-info { }
-    .contact-info p {
+    .contact-info {
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+    }
+    .contact-info > p {
       color: var(--text-light);
-      margin-bottom: 28px;
+      margin-bottom: 40px;
       font-size: 1rem;
     }
     .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     .contact-detail {
       display: flex;
       gap: 14px;
       align-items: flex-start;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: left;
     }
     .c-icon {
       width: 40px;
@@ -1361,8 +1369,8 @@
       /* Layout */
       .about-grid,
       .visit-grid,
-      .contact-grid,
       .event-inner { grid-template-columns: 1fr; }
+      .contact-details { grid-template-columns: 1fr; }
       .about-img-wrap { order: -1; }
       .about-img-badge { bottom: -10px; right: 10px; }
       .technique-grid,
@@ -2371,13 +2379,13 @@
       <span class="section-tag" data-lang="en">Contact</span>
       <h2 class="section-title" data-lang="vi">Kết Nối Với Chúng Tôi</h2>
       <h2 class="section-title" data-lang="en">Get in Touch</h2>
-      <p class="section-subtitle" data-lang="vi">Mọi thắc mắc về tham quan, sự kiện hay hợp tác — đội ngũ Xã Ninh Phước luôn sẵn sàng hỗ trợ bạn.</p>
-      <p class="section-subtitle" data-lang="en">For inquiries about visits, events, or partnerships — the Ninh Phuoc Commune team is ready to assist.</p>
+      <p class="section-subtitle" data-lang="vi">Mọi thắc mắc về tham quan, sự kiện hay hợp tác — đội ngũ Ban Quản lý Làng Gốm Bàu Trúc luôn sẵn sàng hỗ trợ bạn.</p>
+      <p class="section-subtitle" data-lang="en">For inquiries about visits, events, or partnerships — the Bau Truc Pottery Village management team is ready to assist you.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info fade-up">
-        <p data-lang="vi">Liên hệ với chúng tôi qua các thông tin bên dưới hoặc điền vào form để được hỗ trợ.</p>
-        <p data-lang="en">Reach out through the information below or fill in the form for assistance.</p>
+        <p data-lang="vi">Liên hệ trực tiếp với chúng tôi qua các thông tin dưới đây.</p>
+        <p data-lang="en">Reach out to us directly through the information below.</p>
         <div class="contact-details">
           <div class="contact-detail">
             <div class="c-icon">📍</div>
