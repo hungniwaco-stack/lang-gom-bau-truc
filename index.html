@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Làng Gốm Bàu Trúc | Bau Truc Pottery Village</title>
+  <meta name="description" content="Làng Gốm Bàu Trúc – Di sản Văn hóa Phi vật thể Nhân loại UNESCO 2022. Xã Ninh Phước, Tỉnh Khánh Hòa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --terra:   #D35400;
+      --charcoal:#2C3E50;
+      --gold:    #F39C12;
+      --ivory:   #FDFEFE;
+      --terra-dark: #A84300;
+      --terra-light: #F0956A;
+      --bg-soft: #FDF6F0;
+      --text:    #2C3E50;
+      --text-light: #6B7B8D;
+      --border:  #E8D5C4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.3; }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border: 1px solid var(--terra);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 640px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--terra-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .btn-outline:hover { background: #fff; color: var(--terra); }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background 0.3s, box-shadow 0.3s;
+      padding: 0 24px;
+    }
+    #navbar.scrolled {
+      background: var(--charcoal);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .lang-btn {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0f08 0%, #3d1a08 40%, #2C3E50 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(211,84,0,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(243,156,18,0.2) 0%, transparent 50%);
+    }
+
+    /* Decorative pottery silhouettes */
+    .hero-decor {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-decor::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(211,84,0,0.2);
+    }
+    .hero-decor::after {
+      content: '';
+      position: absolute;
+      left: -60px;
+      bottom: 80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(243,156,18,0.15);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 24px 80px;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(243,156,18,0.15);
+      border: 1px solid rgba(243,156,18,0.4);
+      border-radius: 30px;
+      padding: 7px 18px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #fff;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-title .accent { color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 12px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--charcoal);
+      padding: 28px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      divide: var(--border);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 8px 24px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--bg-soft); }
+
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-subtitle { margin: 0 auto; }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--terra) 0%, #8B3A0F 60%, var(--charcoal) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 24px;
+    }
+    .img-placeholder .icon { font-size: 3rem; opacity: 0.6; }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: var(--charcoal);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(243,156,18,0.3);
+    }
+    .about-img-badge .big { font-size: 1.6rem; display: block; }
+
+    .about-text { }
+    .about-text p { color: var(--text-light); margin-bottom: 20px; }
+    .about-text p strong { color: var(--charcoal); }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 28px 0 36px;
+    }
+    .highlight-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .highlight-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: rgba(211,84,0,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .highlight-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .highlight-text p {
+      font-size: 0.87rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* ─── TECHNIQUE ─── */
+    .technique-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .technique-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .technique-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .card-top {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-top-1 { background: linear-gradient(135deg, #D35400, #F0956A); }
+    .card-top-2 { background: linear-gradient(135deg, #2C3E50, #4A6080); }
+    .card-top-3 { background: linear-gradient(135deg, #8B3A0F, #C0651A); }
+
+    .card-step {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-body { padding: 24px; }
+    .card-body h3 {
+      font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .card-body p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ─── UNESCO ─── */
+    .unesco-wrap {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #1a2634 100%);
+      border-radius: 20px;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .unesco-text { color: #fff; }
+    .unesco-text .section-tag {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    .unesco-text .section-title { color: #fff; }
+    .unesco-text p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+    .unesco-badge {
+      text-align: center;
+      color: var(--gold);
+      min-width: 160px;
+    }
+    .unesco-badge .unesco-icon { font-size: 5rem; display: block; margin-bottom: 16px; }
+    .unesco-badge .year {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+    }
+    .unesco-badge .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* ─── CULTURE ─── */
+    .culture-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 9px 20px;
+      border-radius: 30px;
+      border: 2px solid var(--border);
+      background: #fff;
+      color: var(--text-light);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--terra);
+      border-color: var(--terra);
+      color: #fff;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .culture-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--terra);
+      transition: box-shadow 0.2s;
+    }
+    .culture-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    .culture-card .c-icon { font-size: 2rem; margin-bottom: 14px; }
+    .culture-card h3 {
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .culture-card p { font-size: 0.87rem; color: var(--text-light); line-height: 1.7; }
+
+    .festival-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .festival-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .festival-month {
+      background: var(--terra);
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-align: center;
+      min-width: 64px;
+      font-weight: 700;
+    }
+    .festival-month .m-num { font-size: 1.5rem; font-family: 'Playfair Display', serif; display: block; }
+    .festival-month .m-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; }
+    .festival-info h3 {
+      font-size: 0.97rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .festival-info p { font-size: 0.85rem; color: var(--text-light); }
+
+    /* ─── PRODUCTS ─── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .product-card:hover { transform: translateY(-3px); }
+    .product-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .product-img-1 { background: linear-gradient(135deg, #E8A87C, #D35400); }
+    .product-img-2 { background: linear-gradient(135deg, #C0651A, #8B3A0F); }
+    .product-img-3 { background: linear-gradient(135deg, #4A6080, #2C3E50); }
+    .product-img-4 { background: linear-gradient(135deg, #F0956A, #D35400); }
+    .product-body { padding: 18px; }
+    .product-body h3 {
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .product-body p { font-size: 0.82rem; color: var(--text-light); }
+    .product-tag {
+      display: inline-block;
+      background: rgba(211,84,0,0.1);
+      color: var(--terra);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    /* ─── ARTISANS ─── */
+    .artisans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .artisan-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .artisan-avatar {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .artisan-avatar-1 { background: linear-gradient(135deg, #D35400, #8B3A0F); }
+    .artisan-avatar-2 { background: linear-gradient(135deg, #2C3E50, #4A6080); }
+    .artisan-avatar-3 { background: linear-gradient(135deg, #8B3A0F, #C0651A); }
+    .artisan-body { padding: 24px; }
+    .artisan-body h3 {
+      font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .artisan-title {
+      font-size: 0.78rem;
+      color: var(--terra);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .artisan-body p { font-size: 0.85rem; color: var(--text-light); }
+    .artisan-update {
+      font-size: 0.78rem;
+      color: var(--gold);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* ─── VISIT ─── */
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .map-placeholder {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8d5c4, #d4b89a);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 24px;
+      border: 2px dashed var(--border);
+    }
+    .map-placeholder .map-icon { font-size: 3rem; opacity: 0.5; }
+
+    .visit-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .visit-info-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .visit-info-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: rgba(211,84,0,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .visit-info-item h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .visit-info-item p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .visit-info-item .updating {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    /* ─── EVENT ─── */
+    #event {
+      background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 60%, #5A1F08 100%);
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #event::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    #event::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .event-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .event-text { color: #fff; }
+    .event-text .section-tag {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(243,156,18,0.1);
+    }
+    .event-text .section-title { color: #fff; margin-bottom: 12px; }
+    .event-theme {
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
+    .event-text p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 28px;
+    }
+
+    .event-countdown {
+      background: rgba(0,0,0,0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      min-width: 240px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .event-date-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .event-month { color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 600; margin-bottom: 16px; }
+    .event-divider { height: 1px; background: rgba(255,255,255,0.15); margin: 16px 0; }
+    .event-meta { color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.8; }
+    .event-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold);
+      color: var(--charcoal);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 12px;
+      animation: pulse 2s infinite;
+    }
+    .event-dot {
+      width: 8px; height: 8px;
+      background: var(--charcoal);
+      border-radius: 50%;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .gallery-item:hover { transform: scale(1.02); filter: brightness(1.1); }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+
+    .g1 { background: linear-gradient(135deg, #D35400, #A84300); height: 200px; }
+    .g2 { background: linear-gradient(135deg, #2C3E50, #1a2634); height: 200px; }
+    .g3 { background: linear-gradient(135deg, #F39C12, #E67E22); height: 200px; }
+    .g4 { background: linear-gradient(135deg, #8B3A0F, #5A1F08); height: 200px; }
+    .g5 { background: linear-gradient(135deg, #C0651A, #D35400); height: 200px; }
+    .g6 { background: linear-gradient(135deg, #4A6080, #2C3E50); height: 200px; }
+    .g7 { background: linear-gradient(135deg, #D35400, #F39C12); height: 200px; }
+    .g8 { background: linear-gradient(135deg, #1a2634, #4A6080); height: 200px; }
+
+    .gallery-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .contact-info { }
+    .contact-info p {
+      color: var(--text-light);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-detail {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .c-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: rgba(211,84,0,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .contact-detail h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+    .contact-detail p {
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      font-weight: 500;
+      margin: 0;
+    }
+    .contact-detail .updating {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .contact-form { }
+    .contact-form h3 {
+      font-size: 1.4rem;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--terra);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.7);
+      padding: 56px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h3 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-brand p {
+      font-size: 0.87rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .social-btn:hover { background: var(--terra); }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .footer-bottom a { color: var(--gold); }
+
+    /* ─── MOBILE NAV ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: var(--charcoal);
+        padding: 20px 24px;
+        gap: 4px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+      .nav-links.open .lang-btn { margin-top: 12px; width: fit-content; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid,
+      .visit-grid,
+      .contact-grid,
+      .event-inner { grid-template-columns: 1fr; }
+      .about-img-wrap { order: -1; }
+      .about-img-badge { bottom: -10px; right: 10px; }
+      .technique-grid,
+      .culture-grid { grid-template-columns: 1fr; }
+      .artisans-grid { grid-template-columns: 1fr; }
+      .festival-list { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .unesco-wrap { grid-template-columns: 1fr; text-align: center; padding: 40px 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .event-countdown { min-width: unset; }
+    }
+
+    /* ─── SCROLL ANIMATION ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── HIDDEN LANG ─── */
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="vi"] { display: none; }
+    body.en [data-lang="en"] { display: revert; }
+    body.en [data-lang-block="en"] { display: block; }
+    [data-lang-block="en"] { display: none; }
+    body.en [data-lang-block="vi"] { display: none; }
+    [data-lang-block="vi"] { display: block; }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span data-lang="vi">Làng Gốm</span><span data-lang="en">Bau Truc</span> Bàu Trúc
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-lang="vi">Làng Gốm</a><a href="#about" data-lang="en">The Village</a></li>
+      <li><a href="#technique" data-lang="vi">Kỹ Thuật</a><a href="#technique" data-lang="en">Craft</a></li>
+      <li><a href="#culture" data-lang="vi">Văn Hóa Chăm</a><a href="#culture" data-lang="en">Cham Culture</a></li>
+      <li><a href="#visit" data-lang="vi">Tham Quan</a><a href="#visit" data-lang="en">Visit</a></li>
+      <li><a href="#event" data-lang="vi">Sự Kiện</a><a href="#event" data-lang="en">Event</a></li>
+      <li><a href="#contact" data-lang="vi">Liên Hệ</a><a href="#contact" data-lang="en">Contact</a></li>
+      <li>
+        <button class="lang-btn" id="langToggle" onclick="toggleLang()">🇬🇧 EN</button>
+      </li>
+    </ul>
+
+    <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-decor"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      🏺 <span data-lang="vi">Di sản Phi vật thể UNESCO • 2022</span>
+          <span data-lang="en">UNESCO Intangible Heritage • 2022</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span data-lang="vi">Làng Gốm <span class="accent">Bàu Trúc</span></span>
+      <span data-lang="en">Bau Truc <span class="accent">Pottery</span> Village</span>
+    </h1>
+
+    <p class="hero-sub" data-lang="vi">Xã Ninh Phước · Tỉnh Khánh Hòa · Việt Nam</p>
+    <p class="hero-sub" data-lang="en">Ninh Phuoc Commune · Khanh Hoa Province · Vietnam</p>
+
+    <p class="hero-desc" data-lang="vi">Nơi đôi bàn tay người Chăm chắt chiu ngàn năm lửa đất — kỹ thuật làm gốm thủ công độc nhất thế giới, không bàn xoay, không men hóa học.</p>
+    <p class="hero-desc" data-lang="en">Where Cham hands have shaped earth and fire for over a thousand years — the world's most unique hand-built pottery tradition, no wheel, no chemical glazes.</p>
+
+    <div class="hero-btns">
+      <a href="#about" class="btn btn-primary" data-lang="vi">Khám Phá Làng Gốm</a>
+      <a href="#about" class="btn btn-primary" data-lang="en">Explore the Village</a>
+      <a href="#visit" class="btn btn-outline" data-lang="vi">Hướng Dẫn Tham Quan</a>
+      <a href="#visit" class="btn btn-outline" data-lang="en">Plan Your Visit</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span data-lang="vi">Cuộn xuống</span>
+    <span data-lang="en">Scroll</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">2022</div>
+        <div class="stat-label" data-lang="vi">UNESCO Công nhận</div>
+        <div class="stat-label" data-lang="en">UNESCO Inscribed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1.000+</div>
+        <div class="stat-label" data-lang="vi">Năm lịch sử</div>
+        <div class="stat-label" data-lang="en">Years of history</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label" data-lang="vi">Thủ công, không bàn xoay</div>
+        <div class="stat-label" data-lang="en">Hand-built, no wheel</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">VI</div>
+        <div class="stat-label" data-lang="vi">Ngày hội Chăm 26/06/2026</div>
+        <div class="stat-label" data-lang="en">Cham Festival 26/06/2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-img-wrap fade-up">
+        <div class="about-img-main">
+          <div class="img-placeholder">
+            <span class="icon">🏺</span>
+            <p data-lang="vi">Ảnh nghệ nhân làm gốm<br/><small>(Cập nhật sớm)</small></p>
+            <p data-lang="en">Artisan at work<br/><small>(Photo coming soon)</small></p>
+          </div>
+        </div>
+        <div class="about-img-badge">
+          <span class="big">UNESCO</span>
+          <span data-lang="vi">Di sản Nhân loại</span>
+          <span data-lang="en">World Heritage</span>
+        </div>
+      </div>
+
+      <div class="about-text fade-up">
+        <span class="section-tag" data-lang="vi">Về Làng Gốm</span>
+        <span class="section-tag" data-lang="en">About the Village</span>
+
+        <h2 class="section-title" data-lang="vi">Viên gốm mang<br/>linh hồn ngàn năm</h2>
+        <h2 class="section-title" data-lang="en">A thousand-year-old<br/>soul in every piece</h2>
+
+        <p data-lang="vi">Giữa lòng xã Ninh Phước, tỉnh Khánh Hòa, Làng gốm Bàu Trúc tồn tại như một mạch nguồn văn hóa chưa bao giờ đứt đoạn. Đây là một trong những làng nghề gốm cổ nhất Đông Nam Á.</p>
+        <p data-lang="en">In the heart of Ninh Phuoc Commune, Khanh Hoa Province, Bau Truc Pottery Village endures as an unbroken cultural wellspring — one of the oldest pottery villages in Southeast Asia.</p>
+
+        <p data-lang="vi">Người phụ nữ Chăm nơi đây không dùng bàn xoay — họ đi giật lùi quanh khối đất sét, dùng đôi tay trần để nặn nên từng hình dáng, rồi nung lộ thiên dưới trời xanh với lửa rơm và khói củi.</p>
+        <p data-lang="en">Cham women here use no pottery wheel — they walk backwards around a fixed clay mound, shaping each vessel with bare hands, then fire their work outdoors under open skies with straw and firewood.</p>
+
+        <p data-lang="vi"><strong>Ngày 29/11/2022</strong>, UNESCO chính thức ghi danh nghệ thuật làm gốm của người Chăm vào Danh sách Di sản Văn hóa Phi vật thể Cần Bảo vệ Khẩn cấp.</p>
+        <p data-lang="en">On <strong>November 29, 2022</strong>, UNESCO officially inscribed Cham pottery-making on the List of Intangible Cultural Heritage in Need of Urgent Safeguarding.</p>
+
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🖐</div>
+            <div class="highlight-text">
+              <h4 data-lang="vi">Kỹ thuật độc nhất thế giới</h4>
+              <h4 data-lang="en">World's unique technique</h4>
+              <p data-lang="vi">Làm bằng tay, xoay bằng mông — không bàn xoay cơ học</p>
+              <p data-lang="en">Hand-built, hip-turned — no mechanical wheel used</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🔥</div>
+            <div class="highlight-text">
+              <h4 data-lang="vi">Nung lộ thiên truyền thống</h4>
+              <h4 data-lang="en">Traditional open-air firing</h4>
+              <p data-lang="vi">Nung ngoài trời với rơm và củi, tạo màu sắc ngẫu nhiên độc đáo</p>
+              <p data-lang="en">Fired outdoors with straw and wood, creating unique random color patterns</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🌿</div>
+            <div class="highlight-text">
+              <h4 data-lang="vi">Màu sắc 100% thiên nhiên</h4>
+              <h4 data-lang="en">100% natural pigments</h4>
+              <p data-lang="vi">Không men hóa học — nhuộm màu từ nhựa vỏ cây rừng</p>
+              <p data-lang="en">No chemical glazes — tinted with forest tree resin</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#technique" class="btn btn-primary" data-lang="vi">Tìm hiểu Kỹ thuật Làm Gốm →</a>
+        <a href="#technique" class="btn btn-primary" data-lang="en">Learn the Pottery Craft →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     UNESCO BANNER
+═══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="unesco-wrap fade-up">
+      <div class="unesco-text">
+        <span class="section-tag" data-lang="vi">UNESCO • 2022</span>
+        <span class="section-tag" data-lang="en">UNESCO • 2022</span>
+        <h2 class="section-title" data-lang="vi">Di sản Văn hóa Phi vật thể<br/>Cần Bảo vệ Khẩn cấp</h2>
+        <h2 class="section-title" data-lang="en">Intangible Cultural Heritage<br/>in Need of Urgent Safeguarding</h2>
+        <p data-lang="vi">Ngày 29 tháng 11 năm 2022, tại kỳ họp lần thứ 17 của Ủy ban Liên Chính phủ về Bảo vệ Di sản Văn hóa Phi vật thể, UNESCO đã chính thức ghi danh <strong>Nghệ thuật làm gốm của người Chăm</strong> vào Danh sách Di sản Văn hóa Phi vật thể Cần Bảo vệ Khẩn cấp.</p>
+        <p data-lang="en">On November 29, 2022, at the 17th session of the Intergovernmental Committee for the Safeguarding of Intangible Cultural Heritage, UNESCO officially inscribed <strong>the art of Cham pottery making</strong> on the List of Intangible Cultural Heritage in Need of Urgent Safeguarding.</p>
+        <p data-lang="vi">Đây là sự ghi nhận xứng đáng cho một nghề thủ công hơn ngàn năm tuổi — và là cam kết của cộng đồng Chăm, của tỉnh Khánh Hòa trong việc bảo tồn và phát huy giá trị di sản này.</p>
+        <p data-lang="en">This recognition honors a craft over a thousand years old — and represents the commitment of the Cham community and Khanh Hoa Province to preserve and promote this heritage.</p>
+      </div>
+      <div class="unesco-badge">
+        <span class="unesco-icon">🏛</span>
+        <span class="year">2022</span>
+        <span class="label">UNESCO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TECHNIQUE
+═══════════════════════════════════════════ -->
+<section id="technique" class="section">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Kỹ Thuật Làm Gốm</span>
+      <span class="section-tag" data-lang="en">The Pottery Craft</span>
+      <h2 class="section-title" data-lang="vi">Quy trình Độc nhất Vô nhị</h2>
+      <h2 class="section-title" data-lang="en">A One-of-a-Kind Process</h2>
+      <p class="section-subtitle" data-lang="vi">Ba bước tạo nên sản phẩm gốm Chăm không giống bất kỳ nơi nào trên thế giới.</p>
+      <p class="section-subtitle" data-lang="en">Three steps that create Cham pottery unlike anything else in the world.</p>
+    </div>
+    <div class="technique-grid">
+      <div class="technique-card fade-up">
+        <div class="card-top card-top-1">
+          🖐
+          <span class="card-step">1</span>
+        </div>
+        <div class="card-body">
+          <h3 data-lang="vi">Làm bằng tay, xoay bằng mông</h3>
+          <h3 data-lang="en">Hand-built, hip-turned</h3>
+          <p data-lang="vi">Nghệ nhân đặt khối đất sét cố định trên bệ kê. Thay vì xoay bệ, người thợ đi giật lùi vòng quanh, dùng đôi tay uyển chuyển để nặn, vuốt tạo hình theo trực giác. Kỹ thuật này chỉ tồn tại duy nhất tại Bàu Trúc.</p>
+          <p data-lang="en">The artisan places a clay block on a fixed stand. Instead of rotating the stand, they walk backwards around it, shaping with fluid hand movements guided by intuition. This technique exists only in Bau Truc.</p>
+        </div>
+      </div>
+      <div class="technique-card fade-up">
+        <div class="card-top card-top-2">
+          🌿
+          <span class="card-step">2</span>
+        </div>
+        <div class="card-body">
+          <h3 data-lang="vi">Chà bóng & Nhuộm màu tự nhiên</h3>
+          <h3 data-lang="en">Polishing & Natural Pigments</h3>
+          <p data-lang="vi">Bề mặt gốm được chà nhẵn bóng bằng mảnh sành và cật tre. Màu sắc đến hoàn toàn từ thiên nhiên: nhựa vỏ cây rừng (vỏ cây dông), quả rừng — tạo nên tông đỏ hồng, vàng đất đặc trưng. Không một hóa chất nào được sử dụng.</p>
+          <p data-lang="en">Surfaces are polished smooth with pottery shards and bamboo strips. Color comes entirely from nature: forest tree resin (dong bark), forest fruits — creating the characteristic red-pink and earth-yellow tones. No chemicals are used.</p>
+        </div>
+      </div>
+      <div class="technique-card fade-up">
+        <div class="card-top card-top-3">
+          🔥
+          <span class="card-step">3</span>
+        </div>
+        <div class="card-body">
+          <h3 data-lang="vi">Nung lộ thiên ngoài trời</h3>
+          <h3 data-lang="en">Open-air Firing</h3>
+          <p data-lang="vi">Không lò nung khép kín. Gốm được xếp đan xen với củi khô, phủ rơm rạ rồi đốt ngoài trời trong khoảng 1 ngày. Khói và lửa tạo nên những vệt màu ngẫu nhiên: đỏ hồng, vàng đỏ, đen xám, nâu cháy — mỗi sản phẩm là độc bản tuyệt đối.</p>
+          <p data-lang="en">No closed kiln. Pottery is stacked with dry wood, covered with straw, and fired outdoors for about one day. Smoke and flames create random color patterns: pink-red, golden-red, ash-gray, burnt brown — every piece is absolutely unique.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS
+═══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Sản Phẩm Gốm</span>
+      <span class="section-tag" data-lang="en">Pottery Products</span>
+      <h2 class="section-title" data-lang="vi">Từ Đất Sét Đến Nghệ Thuật</h2>
+      <h2 class="section-title" data-lang="en">From Clay to Art</h2>
+      <p class="section-subtitle" data-lang="vi">Mỗi sản phẩm là sự kết hợp giữa công năng thực tiễn và vẻ đẹp nghệ thuật của người Chăm.</p>
+      <p class="section-subtitle" data-lang="en">Each piece combines practical utility with the artistic beauty of Cham craftsmanship.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card fade-up">
+        <div class="product-img product-img-1">🏺</div>
+        <div class="product-body">
+          <h3 data-lang="vi">Lu & Ấm Đất</h3>
+          <h3 data-lang="en">Water Jars & Pots</h3>
+          <p data-lang="vi">Lu nước, ấm củi, bình đựng — tinh hoa đồ gia dụng truyền thống Chăm.</p>
+          <p data-lang="en">Water jars, firewood pots, storage vessels — the finest traditional Cham household items.</p>
+          <span class="product-tag" data-lang="vi">Đồ gia dụng</span>
+          <span class="product-tag" data-lang="en">Household</span>
+        </div>
+      </div>
+      <div class="product-card fade-up">
+        <div class="product-img product-img-2">🗿</div>
+        <div class="product-body">
+          <h3 data-lang="vi">Tượng Apsara & Vũ Nữ</h3>
+          <h3 data-lang="en">Apsara & Dancing Figures</h3>
+          <p data-lang="vi">Tượng vũ nữ Apsara — biểu tượng nghệ thuật điêu khắc của nền văn minh Chăm.</p>
+          <p data-lang="en">Apsara dancer figurines — the iconic sculptural symbol of Cham civilization.</p>
+          <span class="product-tag" data-lang="vi">Mỹ nghệ</span>
+          <span class="product-tag" data-lang="en">Fine Art</span>
+        </div>
+      </div>
+      <div class="product-card fade-up">
+        <div class="product-img product-img-3">🏯</div>
+        <div class="product-body">
+          <h3 data-lang="vi">Tháp Chăm Thu Nhỏ</h3>
+          <h3 data-lang="en">Miniature Cham Towers</h3>
+          <p data-lang="vi">Mô hình tháp Chăm cổ — quà tặng lưu niệm ý nghĩa cho du khách.</p>
+          <p data-lang="en">Miniature ancient Cham towers — meaningful souvenirs for visitors.</p>
+          <span class="product-tag" data-lang="vi">Lưu niệm</span>
+          <span class="product-tag" data-lang="en">Souvenir</span>
+        </div>
+      </div>
+      <div class="product-card fade-up">
+        <div class="product-img product-img-4">🍳</div>
+        <div class="product-body">
+          <h3 data-lang="vi">Khuôn Bánh Căn & Bánh Xèo</h3>
+          <h3 data-lang="en">Traditional Cooking Molds</h3>
+          <p data-lang="vi">Khuôn bánh căn, khuôn bánh xèo, nồi đất — vật dụng bếp núc độc đáo của người Chăm.</p>
+          <p data-lang="en">Banh can and Banh xeo molds, clay pots — unique Cham cooking utensils.</p>
+          <span class="product-tag" data-lang="vi">Ẩm thực</span>
+          <span class="product-tag" data-lang="en">Culinary</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CULTURE
+═══════════════════════════════════════════ -->
+<section id="culture" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag" data-lang="vi">Văn Hóa Chăm</span>
+      <span class="section-tag" data-lang="en">Cham Culture</span>
+      <h2 class="section-title" data-lang="vi">Nền Văn Minh Rực Rỡ</h2>
+      <h2 class="section-title" data-lang="en">A Brilliant Civilization</h2>
+      <p class="section-subtitle" data-lang="vi">Người Chăm để lại dấu ấn văn minh qua hệ thống đền tháp vĩ đại, lễ hội đặc sắc và nghệ thuật trình diễn độc đáo.</p>
+      <p class="section-subtitle" data-lang="en">The Cham people left their civilizational mark through magnificent temple towers, vibrant festivals, and unique performing arts.</p>
+    </div>
+
+    <div class="culture-tabs">
+      <button class="tab-btn active" onclick="showTab('temples')" data-lang="vi">🏯 Đền Tháp</button>
+      <button class="tab-btn active" onclick="showTab('temples')" data-lang="en">🏯 Temples</button>
+      <button class="tab-btn" onclick="showTab('festivals')" data-lang="vi">🎊 Lễ Hội</button>
+      <button class="tab-btn" onclick="showTab('festivals')" data-lang="en">🎊 Festivals</button>
+      <button class="tab-btn" onclick="showTab('arts')" data-lang="vi">🎭 Nghệ Thuật</button>
+      <button class="tab-btn" onclick="showTab('arts')" data-lang="en">🎭 Arts</button>
+    </div>
+
+    <div id="tab-temples" class="tab-content active">
+      <div class="culture-grid">
+        <div class="culture-card fade-up">
+          <div class="c-icon">🕌</div>
+          <h3 data-lang="vi">Tháp Bà Pô Nagar – Nha Trang</h3>
+          <h3 data-lang="en">Po Nagar Tower – Nha Trang</h3>
+          <p data-lang="vi">Quần thể đền tháp Chăm nổi tiếng bậc nhất, thờ nữ thần Pô Nagar — mẹ xứ sở của người Chăm. Được xây dựng từ thế kỷ VII–XII, đây là biểu tượng tâm linh và kiến trúc của nền văn minh Chăm Pa.</p>
+          <p data-lang="en">The most famous Cham temple complex, worshipping goddess Po Nagar — mother of the Cham homeland. Built between the 7th–12th centuries, it is a spiritual and architectural symbol of Champa civilization.</p>
+        </div>
+        <div class="culture-card fade-up">
+          <div class="c-icon">🗼</div>
+          <h3 data-lang="vi">Tháp Pô Klong Garai</h3>
+          <h3 data-lang="en">Po Klong Garai Tower</h3>
+          <p data-lang="vi">Quần thể tháp Chăm thuộc tỉnh Khánh Hòa, thờ vị vua huyền thoại Pô Klong Garai. Kiến trúc gạch nung đặc trưng với kỹ thuật xây dựng bí ẩn chưa được giải mã hoàn toàn đến nay.</p>
+          <p data-lang="en">A Cham tower complex in Khanh Hoa Province, dedicated to the legendary king Po Klong Garai. Distinctive fired-brick architecture with mysterious construction techniques not yet fully decoded.</p>
+        </div>
+        <div class="culture-card fade-up">
+          <div class="c-icon">🧱</div>
+          <h3 data-lang="vi">Kiến Trúc Gạch Nung Bí Ẩn</h3>
+          <h3 data-lang="en">Mysterious Brick Architecture</h3>
+          <p data-lang="vi">Người Chăm xây tháp bằng gạch nung không dùng vữa kết dính — các viên gạch dường như "liền khối" với nhau theo cách mà khoa học hiện đại chưa giải thích được hoàn toàn.</p>
+          <p data-lang="en">The Cham built towers with fired bricks and no mortar — the bricks appear to be "fused" together in a way modern science has not fully explained.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-festivals" class="tab-content">
+      <div class="festival-list">
+        <div class="festival-item fade-up">
+          <div class="festival-month">
+            <span class="m-num">10</span>
+            <span class="m-label" data-lang="vi">Tháng</span>
+            <span class="m-label" data-lang="en">Month</span>
+          </div>
+          <div class="festival-info">
+            <h3 data-lang="vi">Lễ hội Katê</h3>
+            <h3 data-lang="en">Kate Festival</h3>
+            <p data-lang="vi">Lễ hội lớn nhất của người Chăm Bàlamôn, tưởng nhớ tổ tiên và các vị thần. Diễn ra tại các đền tháp với nghi lễ rước y phục thần linh, múa hát truyền thống và âm nhạc dân gian đặc sắc.</p>
+            <p data-lang="en">The biggest festival of Brahman Cham people, honoring ancestors and deities. Held at temple towers with deity robe ceremonies, traditional dance, and folk music.</p>
+          </div>
+        </div>
+        <div class="festival-item fade-up">
+          <div class="festival-month">
+            <span class="m-num">3</span>
+            <span class="m-label" data-lang="vi">Âm lịch</span>
+            <span class="m-label" data-lang="en">Lunar</span>
+          </div>
+          <div class="festival-info">
+            <h3 data-lang="vi">Lễ hội Tháp Bà Pô Nagar</h3>
+            <h3 data-lang="en">Po Nagar Temple Festival</h3>
+            <p data-lang="vi">Lễ hội văn hóa lớn của cả người Chăm và người Việt tại Nha Trang. Thu hút hàng vạn du khách hành hương và tham quan mỗi năm, là điểm giao thoa văn hóa Chăm – Việt độc đáo.</p>
+            <p data-lang="en">A major cultural festival for both Cham and Viet people in Nha Trang. Drawing tens of thousands of pilgrims and visitors annually — a unique Cham-Viet cultural crossroads.</p>
+          </div>
+        </div>
+        <div class="festival-item fade-up">
+          <div class="festival-month">
+            <span class="m-num">6</span>
+            <span class="m-label">2026</span>
+          </div>
+          <div class="festival-info">
+            <h3 data-lang="vi">Ngày hội Văn hóa Chăm lần VI</h3>
+            <h3 data-lang="en">6th Cham Cultural Festival</h3>
+            <p data-lang="vi">26–28/06/2026 tại Khánh Hòa. Chủ đề: "Bảo tồn, phát huy bản sắc văn hóa dân tộc Chăm trong kỷ nguyên mới". Sự kiện quy mô lớn nhất năm 2026.</p>
+            <p data-lang="en">June 26–28, 2026 in Khanh Hoa. Theme: "Preserving and Promoting Cham Cultural Identity in the New Era." The largest event of 2026.</p>
+          </div>
+        </div>
+        <div class="festival-item fade-up">
+          <div class="festival-month">
+            <span class="m-num">7</span>
+            <span class="m-label" data-lang="vi">Âm lịch</span>
+            <span class="m-label" data-lang="en">Lunar</span>
+          </div>
+          <div class="festival-info">
+            <h3 data-lang="vi">Lễ Ramưwan</h3>
+            <h3 data-lang="en">Ramưwan Festival</h3>
+            <p data-lang="vi">Lễ hội của người Chăm Islam (Chăm Bàni), tương tự tháng Ramadan — tháng ăn chay, cầu nguyện và đoàn tụ gia đình.</p>
+            <p data-lang="en">Festival of Islam Cham (Cham Bani), similar to Ramadan — a month of fasting, prayer, and family reunion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-arts" class="tab-content">
+      <div class="culture-grid">
+        <div class="culture-card fade-up">
+          <div class="c-icon">💃</div>
+          <h3 data-lang="vi">Múa Apsara & Múa Quạt</h3>
+          <h3 data-lang="en">Apsara Dance & Fan Dance</h3>
+          <p data-lang="vi">Điệu múa Apsara mang dáng dấp của những vũ nữ thiên đình trong phù điêu Chăm cổ. Múa quạt, múa lu cũng là những điệu múa truyền thống đặc sắc của phụ nữ Chăm.</p>
+          <p data-lang="en">The Apsara dance echoes the celestial dancers in ancient Cham bas-reliefs. Fan dance and water jar dance are equally distinctive traditional dances of Cham women.</p>
+        </div>
+        <div class="culture-card fade-up">
+          <div class="c-icon">🥁</div>
+          <h3 data-lang="vi">Trống Baranưng & Ghi-năng</h3>
+          <h3 data-lang="en">Paranưng & Ghi-năng Drums</h3>
+          <p data-lang="vi">Hai loại trống linh thiêng không thể thiếu trong mọi nghi lễ Chăm. Tiếng trống Ghi-năng dồn dập, hối thúc là âm thanh đặc trưng nhất của lễ hội Chăm.</p>
+          <p data-lang="en">Two sacred drums indispensable in every Cham ritual. The driving beat of the Ghi-năng drum is the most characteristic sound of Cham festivals.</p>
+        </div>
+        <div class="culture-card fade-up">
+          <div class="c-icon">🎶</div>
+          <h3 data-lang="vi">Kèn Saranai</h3>
+          <h3 data-lang="en">Saranai Reed Flute</h3>
+          <p data-lang="vi">Nhạc cụ hơi truyền thống của người Chăm — tiếng kèn Saranai cao vút, réo rắt mang đặc trưng âm nhạc Trung Đông pha lẫn âm hưởng Đông Nam Á, tạo nên âm sắc độc đáo không thể nhầm lẫn.</p>
+          <p data-lang="en">The Cham traditional wind instrument — the piercing, melodic Saranai blends Middle Eastern musical characteristics with Southeast Asian resonances, creating an unmistakable timbre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ARTISANS
+═══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Nghệ Nhân</span>
+      <span class="section-tag" data-lang="en">Master Artisans</span>
+      <h2 class="section-title" data-lang="vi">Những Đôi Tay Giữ Lửa</h2>
+      <h2 class="section-title" data-lang="en">Hands That Keep the Flame Alive</h2>
+      <p class="section-subtitle" data-lang="vi">Hồ sơ nghệ nhân tiêu biểu đang được cập nhật từ Xã Ninh Phước.</p>
+      <p class="section-subtitle" data-lang="en">Artisan profiles are being updated from Ninh Phuoc Commune.</p>
+    </div>
+    <div class="artisans-grid">
+      <div class="artisan-card fade-up">
+        <div class="artisan-avatar artisan-avatar-1">👩</div>
+        <div class="artisan-body">
+          <h3 data-lang="vi">Nghệ nhân tiêu biểu 1</h3>
+          <h3 data-lang="en">Featured Artisan 1</h3>
+          <div class="artisan-title" data-lang="vi">Nghệ nhân Ưu tú</div>
+          <div class="artisan-title" data-lang="en">Distinguished Artisan</div>
+          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
+          <p data-lang="en">Detailed information is being collected and updated.</p>
+          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
+          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+        </div>
+      </div>
+      <div class="artisan-card fade-up">
+        <div class="artisan-avatar artisan-avatar-2">👩</div>
+        <div class="artisan-body">
+          <h3 data-lang="vi">Nghệ nhân tiêu biểu 2</h3>
+          <h3 data-lang="en">Featured Artisan 2</h3>
+          <div class="artisan-title" data-lang="vi">Nghệ nhân Nhân dân</div>
+          <div class="artisan-title" data-lang="en">People's Artisan</div>
+          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
+          <p data-lang="en">Detailed information is being collected and updated.</p>
+          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
+          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+        </div>
+      </div>
+      <div class="artisan-card fade-up">
+        <div class="artisan-avatar artisan-avatar-3">👩</div>
+        <div class="artisan-body">
+          <h3 data-lang="vi">Nghệ nhân tiêu biểu 3</h3>
+          <h3 data-lang="en">Featured Artisan 3</h3>
+          <div class="artisan-title" data-lang="vi">Thế hệ kế thừa</div>
+          <div class="artisan-title" data-lang="en">Next Generation</div>
+          <p data-lang="vi">Thông tin chi tiết đang được thu thập và cập nhật.</p>
+          <p data-lang="en">Detailed information is being collected and updated.</p>
+          <p class="artisan-update" data-lang="vi">Sắp cập nhật ✦</p>
+          <p class="artisan-update" data-lang="en">Coming soon ✦</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Thư Viện Ảnh</span>
+      <span class="section-tag" data-lang="en">Photo Gallery</span>
+      <h2 class="section-title" data-lang="vi">Khoảnh Khắc Bàu Trúc</h2>
+      <h2 class="section-title" data-lang="en">Moments of Bau Truc</h2>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item g1">🏺</div>
+      <div class="gallery-item g2">🔥</div>
+      <div class="gallery-item g3">🌾</div>
+      <div class="gallery-item g4">🖐</div>
+      <div class="gallery-item g5 wide">💃</div>
+      <div class="gallery-item g6">🏯</div>
+      <div class="gallery-item g7">🎶</div>
+      <div class="gallery-item g8">🌅</div>
+    </div>
+    <p class="gallery-note" data-lang="vi">📸 Ảnh thực tế đang được cập nhật. Nguồn ảnh tham khảo: VOV, Báo Nhân Dân, Báo Sức khỏe & Đời sống.</p>
+    <p class="gallery-note" data-lang="en">📸 Real photos being updated. Photo sources: VOV, Nhan Dan Newspaper, Health & Life Magazine.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     VISIT
+═══════════════════════════════════════════ -->
+<section id="visit" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag" data-lang="vi">Thông Tin Tham Quan</span>
+      <span class="section-tag" data-lang="en">Visitor Information</span>
+      <h2 class="section-title" data-lang="vi">Đến Tận Nơi, Chạm Tận Tay</h2>
+      <h2 class="section-title" data-lang="en">Come See It. Touch It. Feel It.</h2>
+      <p class="section-subtitle" data-lang="vi">Làng gốm Bàu Trúc mở cửa đón du khách quanh năm tại xã Ninh Phước, tỉnh Khánh Hòa.</p>
+      <p class="section-subtitle" data-lang="en">Bau Truc Pottery Village welcomes visitors year-round in Ninh Phuoc Commune, Khanh Hoa Province.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="map-placeholder fade-up">
+        <span class="map-icon">🗺</span>
+        <strong data-lang="vi">Bản đồ Làng Gốm Bàu Trúc</strong>
+        <strong data-lang="en">Bau Truc Pottery Village Map</strong>
+        <p data-lang="vi">Xã Ninh Phước, Tỉnh Khánh Hòa<br/>Tọa độ GPS đang cập nhật</p>
+        <p data-lang="en">Ninh Phuoc Commune, Khanh Hoa Province<br/>GPS coordinates being updated</p>
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top:8px" data-lang="vi">Mở Google Maps</a>
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top:8px" data-lang="en">Open Google Maps</a>
+      </div>
+      <div class="visit-info-list fade-up">
+        <div class="visit-info-item">
+          <div class="visit-info-icon">📍</div>
+          <div>
+            <h4 data-lang="vi">Địa chỉ</h4>
+            <h4 data-lang="en">Address</h4>
+            <p data-lang="vi">Làng Gốm Bàu Trúc, Xã Ninh Phước, Tỉnh Khánh Hòa, Việt Nam</p>
+            <p data-lang="en">Bau Truc Pottery Village, Ninh Phuoc Commune, Khanh Hoa Province, Vietnam</p>
+          </div>
+        </div>
+        <div class="visit-info-item">
+          <div class="visit-info-icon">🕐</div>
+          <div>
+            <h4 data-lang="vi">Giờ Tham Quan</h4>
+            <h4 data-lang="en">Opening Hours</h4>
+            <p class="updating" data-lang="vi">Đang cập nhật từ Ban quản lý Xã Ninh Phước</p>
+            <p class="updating" data-lang="en">Being updated from Ninh Phuoc Commune Authority</p>
+          </div>
+        </div>
+        <div class="visit-info-item">
+          <div class="visit-info-icon">🎟</div>
+          <div>
+            <h4 data-lang="vi">Vé & Phí Tham Quan</h4>
+            <h4 data-lang="en">Admission</h4>
+            <p class="updating" data-lang="vi">Đang cập nhật — liên hệ trực tiếp để biết thêm</p>
+            <p class="updating" data-lang="en">Being updated — contact directly for details</p>
+          </div>
+        </div>
+        <div class="visit-info-item">
+          <div class="visit-info-icon">🚗</div>
+          <div>
+            <h4 data-lang="vi">Đường Đến Làng</h4>
+            <h4 data-lang="en">Getting Here</h4>
+            <p data-lang="vi">Từ trung tâm TP. Nha Trang: khoảng 60km về hướng Nam theo Quốc lộ 1A</p>
+            <p data-lang="en">From Nha Trang city center: approx. 60km south via National Highway 1A</p>
+          </div>
+        </div>
+        <div class="visit-info-item">
+          <div class="visit-info-icon">🏺</div>
+          <div>
+            <h4 data-lang="vi">Workshop Làm Gốm</h4>
+            <h4 data-lang="en">Pottery Workshop</h4>
+            <p class="updating" data-lang="vi">Thông tin đang cập nhật — liên hệ để đặt lịch</p>
+            <p class="updating" data-lang="en">Details being updated — contact to book</p>
+          </div>
+        </div>
+        <div class="visit-info-item">
+          <div class="visit-info-icon">📞</div>
+          <div>
+            <h4 data-lang="vi">Liên Hệ</h4>
+            <h4 data-lang="en">Contact</h4>
+            <p class="updating" data-lang="vi">Số điện thoại đang cập nhật</p>
+            <p class="updating" data-lang="en">Phone number being updated</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     EVENT
+═══════════════════════════════════════════ -->
+<section id="event">
+  <div class="container">
+    <div class="event-inner">
+      <div class="event-text fade-up">
+        <span class="section-tag" data-lang="vi">Sự Kiện Đặc Biệt</span>
+        <span class="section-tag" data-lang="en">Special Event</span>
+        <h2 class="section-title" data-lang="vi">Ngày Hội Văn Hóa<br/>Dân Tộc Chăm Lần Thứ VI</h2>
+        <h2 class="section-title" data-lang="en">6th Festival of<br/>Cham Ethnic Culture</h2>
+        <div class="event-theme">
+          <span data-lang="vi">"Bảo tồn, phát huy bản sắc văn hóa dân tộc Chăm trong kỷ nguyên mới"</span>
+          <span data-lang="en">"Preserving and Promoting Cham Cultural Identity in the New Era"</span>
+        </div>
+        <p data-lang="vi">Ngày hội quy mô lớn nhất từ trước đến nay về văn hóa Chăm, diễn ra tại tỉnh Khánh Hòa với sự tham gia của cộng đồng người Chăm từ khắp cả nước. Đây là cơ hội hiếm có để trải nghiệm trọn vẹn bản sắc văn hóa Chăm đương đại.</p>
+        <p data-lang="en">The largest-ever festival of Cham culture, held in Khanh Hoa Province with participation from the Cham community across the country. A rare opportunity to fully experience contemporary Cham cultural identity.</p>
+        <a href="#contact" class="btn btn-outline" data-lang="vi">Đăng Ký Tham Dự</a>
+        <a href="#contact" class="btn btn-outline" data-lang="en">Register Interest</a>
+      </div>
+      <div class="event-countdown fade-up">
+        <div class="event-date-big">26–28</div>
+        <div class="event-month" data-lang="vi">Tháng 6, 2026</div>
+        <div class="event-month" data-lang="en">June 2026</div>
+        <div class="event-divider"></div>
+        <div class="event-meta">
+          <span data-lang="vi">📍 Tỉnh Khánh Hòa<br/>🏮 3 ngày sự kiện<br/>🎊 Quy mô toàn quốc</span>
+          <span data-lang="en">📍 Khanh Hoa Province<br/>🏮 3-day event<br/>🎊 National scale</span>
+        </div>
+        <div class="event-live">
+          <span class="event-dot"></span>
+          <span data-lang="vi">Sắp diễn ra</span>
+          <span data-lang="en">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Liên Hệ</span>
+      <span class="section-tag" data-lang="en">Contact</span>
+      <h2 class="section-title" data-lang="vi">Kết Nối Với Chúng Tôi</h2>
+      <h2 class="section-title" data-lang="en">Get in Touch</h2>
+      <p class="section-subtitle" data-lang="vi">Mọi thắc mắc về tham quan, sự kiện hay hợp tác — đội ngũ Xã Ninh Phước luôn sẵn sàng hỗ trợ bạn.</p>
+      <p class="section-subtitle" data-lang="en">For inquiries about visits, events, or partnerships — the Ninh Phuoc Commune team is ready to assist.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <p data-lang="vi">Liên hệ với chúng tôi qua các thông tin bên dưới hoặc điền vào form để được hỗ trợ.</p>
+        <p data-lang="en">Reach out through the information below or fill in the form for assistance.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="c-icon">📍</div>
+            <div>
+              <h4 data-lang="vi">Địa chỉ</h4>
+              <h4 data-lang="en">Address</h4>
+              <p data-lang="vi">UBND Xã Ninh Phước, Tỉnh Khánh Hòa</p>
+              <p data-lang="en">Ninh Phuoc Commune Authority, Khanh Hoa Province</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="c-icon">📞</div>
+            <div>
+              <h4 data-lang="vi">Điện thoại</h4>
+              <h4 data-lang="en">Phone</h4>
+              <p class="updating" data-lang="vi">Đang cập nhật</p>
+              <p class="updating" data-lang="en">Being updated</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="c-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p class="updating" data-lang="vi">Đang cập nhật</p>
+              <p class="updating" data-lang="en">Being updated</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="c-icon">🕐</div>
+            <div>
+              <h4 data-lang="vi">Giờ làm việc</h4>
+              <h4 data-lang="en">Working hours</h4>
+              <p data-lang="vi">Thứ 2 – Thứ 6: 7:30 – 11:30 | 13:30 – 17:00</p>
+              <p data-lang="en">Mon – Fri: 7:30 – 11:30 | 13:30 – 17:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <h3 data-lang="vi">Gửi tin nhắn</h3>
+        <h3 data-lang="en">Send a message</h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-lang="vi">Họ và tên *</label>
+              <label data-lang="en">Full name *</label>
+              <input type="text" required placeholder="" />
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-lang="vi">Chủ đề</label>
+            <label data-lang="en">Subject</label>
+            <select>
+              <option data-lang="vi">Thông tin tham quan</option>
+              <option data-lang="en">Visitor information</option>
+              <option data-lang="vi">Đặt lịch Workshop</option>
+              <option data-lang="en">Book a workshop</option>
+              <option data-lang="vi">Sự kiện 26/06/2026</option>
+              <option data-lang="en">June 26/2026 event</option>
+              <option data-lang="vi">Hợp tác & Truyền thông</option>
+              <option data-lang="en">Partnership & Media</option>
+              <option data-lang="vi">Khác</option>
+              <option data-lang="en">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-lang="vi">Nội dung *</label>
+            <label data-lang="en">Message *</label>
+            <textarea required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            <span data-lang="vi">Gửi Tin Nhắn</span>
+            <span data-lang="en">Send Message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Làng Gốm <span>Bàu Trúc</span></h3>
+        <p data-lang="vi">Di sản Văn hóa Phi vật thể Nhân loại UNESCO 2022. Xã Ninh Phước, Tỉnh Khánh Hòa, Việt Nam.</p>
+        <p data-lang="en">UNESCO Intangible Cultural Heritage of Humanity 2022. Ninh Phuoc Commune, Khanh Hoa Province, Vietnam.</p>
+        <div class="footer-social">
+          <div class="social-btn">📘</div>
+          <div class="social-btn">📸</div>
+          <div class="social-btn">🎬</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="vi">Khám Phá</h4>
+        <h4 data-lang="en">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#about" data-lang="vi">Về Làng Gốm</a><a href="#about" data-lang="en">About</a></li>
+          <li><a href="#technique" data-lang="vi">Kỹ Thuật</a><a href="#technique" data-lang="en">Craft</a></li>
+          <li><a href="#culture" data-lang="vi">Văn Hóa Chăm</a><a href="#culture" data-lang="en">Cham Culture</a></li>
+          <li><a href="#" data-lang="vi">Thư Viện Ảnh</a><a href="#" data-lang="en">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="vi">Du Lịch</h4>
+        <h4 data-lang="en">Tourism</h4>
+        <ul class="footer-links">
+          <li><a href="#visit" data-lang="vi">Hướng Dẫn Tham Quan</a><a href="#visit" data-lang="en">Visit Guide</a></li>
+          <li><a href="#visit" data-lang="vi">Workshop Gốm</a><a href="#visit" data-lang="en">Pottery Workshop</a></li>
+          <li><a href="#event" data-lang="vi">Sự Kiện 2026</a><a href="#event" data-lang="en">Event 2026</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="vi">Liên Kết</h4>
+        <h4 data-lang="en">Links</h4>
+        <ul class="footer-links">
+          <li><a href="#contact" data-lang="vi">Liên Hệ</a><a href="#contact" data-lang="en">Contact</a></li>
+          <li><a href="https://ich.unesco.org" target="_blank">UNESCO ICH</a></li>
+          <li><a href="#" data-lang="vi">Tỉnh Khánh Hòa</a><a href="#" data-lang="en">Khanh Hoa Province</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-lang="vi">© 2026 UBND Xã Ninh Phước, Tỉnh Khánh Hòa · Bảo lưu mọi quyền</span>
+      <span data-lang="en">© 2026 Ninh Phuoc Commune Authority, Khanh Hoa Province · All rights reserved</span>
+      <span data-lang="vi">Ảnh tham khảo: <a href="#">VOV</a> · <a href="#">Báo Nhân Dân</a> · <a href="#">Báo Sức khỏe & Đời sống</a></span>
+      <span data-lang="en">Photo credits: <a href="#">VOV</a> · <a href="#">Nhan Dan</a> · <a href="#">Health & Life</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+  // ─ Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  navbar.classList.add('scrolled');
+
+  // ─ Mobile menu
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  // Close on link click
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // ─ Language toggle
+  let currentLang = 'vi';
+  function toggleLang() {
+    currentLang = currentLang === 'vi' ? 'en' : 'vi';
+    document.body.classList.toggle('en', currentLang === 'en');
+    document.getElementById('langToggle').textContent =
+      currentLang === 'vi' ? '🇬🇧 EN' : '🇻🇳 VI';
+    document.documentElement.lang = currentLang;
+  }
+
+  // ─ Culture tabs
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // ─ Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ─ Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const isVi = currentLang === 'vi';
+    btn.textContent = isVi ? '✓ Đã gửi! Cảm ơn bạn.' : '✓ Sent! Thank you.';
+    btn.style.background = '#27ae60';
+    setTimeout(() => {
+      btn.innerHTML = isVi
+        ? '<span>Gửi Tin Nhắn</span>'
+        : '<span>Send Message</span>';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
