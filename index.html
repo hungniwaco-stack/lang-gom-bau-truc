@@ -551,12 +551,29 @@
     .culture-card {
       background: #fff;
       border-radius: 12px;
-      padding: 28px;
+      overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       border-left: 4px solid var(--terra);
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .culture-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    .culture-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .culture-card-img {
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--terra), #8B3A0F);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .culture-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .culture-card:hover .culture-card-img img { transform: scale(1.06); }
+    .culture-card-body { padding: 24px; }
     .culture-card .c-icon { font-size: 2rem; margin-bottom: 14px; }
     .culture-card h3 {
       font-size: 1rem;
@@ -1476,25 +1493,37 @@
     <div id="tab-temples" class="tab-content active">
       <div class="culture-grid">
         <div class="culture-card fade-up">
-          <div class="c-icon">🕌</div>
-          <h3 data-lang="vi">Tháp Bà Pô Nagar – Nha Trang</h3>
-          <h3 data-lang="en">Po Nagar Tower – Nha Trang</h3>
-          <p data-lang="vi">Quần thể đền tháp Chăm nổi tiếng bậc nhất, thờ nữ thần Pô Nagar — mẹ xứ sở của người Chăm. Được xây dựng từ thế kỷ VII–XII, đây là biểu tượng tâm linh và kiến trúc của nền văn minh Chăm Pa.</p>
-          <p data-lang="en">The most famous Cham temple complex, worshipping goddess Po Nagar — mother of the Cham homeland. Built between the 7th–12th centuries, it is a spiritual and architectural symbol of Champa civilization.</p>
+          <div class="culture-card-img">
+            <img src="images/thap_ba_po_nagar.png" alt="Tháp Bà Pô Nagar Nha Trang" onerror="this.style.display='none'" />
+          </div>
+          <div class="culture-card-body">
+            <h3 data-lang="vi">Tháp Bà Pô Nagar – Nha Trang</h3>
+            <h3 data-lang="en">Po Nagar Tower – Nha Trang</h3>
+            <p data-lang="vi">Quần thể đền tháp Chăm nổi tiếng bậc nhất, thờ nữ thần Pô Nagar — mẹ xứ sở của người Chăm. Được xây dựng từ thế kỷ VII–XII, đây là biểu tượng tâm linh và kiến trúc của nền văn minh Chăm Pa.</p>
+            <p data-lang="en">The most famous Cham temple complex, worshipping goddess Po Nagar — mother of the Cham homeland. Built between the 7th–12th centuries, it is a spiritual and architectural symbol of Champa civilization.</p>
+          </div>
         </div>
         <div class="culture-card fade-up">
-          <div class="c-icon">🗼</div>
-          <h3 data-lang="vi">Tháp Pô Klong Garai</h3>
-          <h3 data-lang="en">Po Klong Garai Tower</h3>
-          <p data-lang="vi">Quần thể tháp Chăm thuộc tỉnh Khánh Hòa, thờ vị vua huyền thoại Pô Klong Garai. Kiến trúc gạch nung đặc trưng với kỹ thuật xây dựng bí ẩn chưa được giải mã hoàn toàn đến nay.</p>
-          <p data-lang="en">A Cham tower complex in Khanh Hoa Province, dedicated to the legendary king Po Klong Garai. Distinctive fired-brick architecture with mysterious construction techniques not yet fully decoded.</p>
+          <div class="culture-card-img">
+            <img src="images/thap_po_klong_garai.png" alt="Tháp Pô Klong Garai hoàng hôn" onerror="this.style.display='none'" />
+          </div>
+          <div class="culture-card-body">
+            <h3 data-lang="vi">Tháp Pô Klong Garai</h3>
+            <h3 data-lang="en">Po Klong Garai Tower</h3>
+            <p data-lang="vi">Quần thể tháp Chăm thuộc tỉnh Khánh Hòa, thờ vị vua huyền thoại Pô Klong Garai. Kiến trúc gạch nung đặc trưng với kỹ thuật xây dựng bí ẩn chưa được giải mã hoàn toàn đến nay.</p>
+            <p data-lang="en">A Cham tower complex in Khanh Hoa Province, dedicated to the legendary king Po Klong Garai. Distinctive fired-brick architecture with mysterious construction techniques not yet fully decoded.</p>
+          </div>
         </div>
         <div class="culture-card fade-up">
-          <div class="c-icon">🧱</div>
-          <h3 data-lang="vi">Kiến Trúc Gạch Nung Bí Ẩn</h3>
-          <h3 data-lang="en">Mysterious Brick Architecture</h3>
-          <p data-lang="vi">Người Chăm xây tháp bằng gạch nung không dùng vữa kết dính — các viên gạch dường như "liền khối" với nhau theo cách mà khoa học hiện đại chưa giải thích được hoàn toàn.</p>
-          <p data-lang="en">The Cham built towers with fired bricks and no mortar — the bricks appear to be "fused" together in a way modern science has not fully explained.</p>
+          <div class="culture-card-img">
+            <img src="images/gach_nung_bi_an.png" alt="Phù điêu chạm khắc kiến trúc Chăm" onerror="this.style.display='none'" />
+          </div>
+          <div class="culture-card-body">
+            <h3 data-lang="vi">Kiến Trúc Gạch Nung Bí Ẩn</h3>
+            <h3 data-lang="en">Mysterious Brick Architecture</h3>
+            <p data-lang="vi">Người Chăm xây tháp bằng gạch nung không dùng vữa kết dính — các viên gạch dường như "liền khối" với nhau theo cách mà khoa học hiện đại chưa giải thích được hoàn toàn.</p>
+            <p data-lang="en">The Cham built towers with fired bricks and no mortar — the bricks appear to be "fused" together in a way modern science has not fully explained.</p>
+          </div>
         </div>
       </div>
     </div>
