@@ -1071,6 +1071,188 @@
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+    /* ─── ARTICLES ─── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+    .article-thumb {
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--terra), var(--charcoal));
+    }
+    .article-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s;
+    }
+    .article-card:hover .article-thumb img { transform: scale(1.06); }
+    .article-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .article-cat {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--terra);
+      background: rgba(211,84,0,0.08);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+    .article-date {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+    .article-body h3 {
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .article-body p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .article-read-btn {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--terra);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      transition: gap 0.2s;
+    }
+    .article-read-btn:hover { gap: 10px; }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 16px;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 760px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin: auto;
+    }
+    .modal-hero {
+      height: 260px;
+      overflow: hidden;
+    }
+    .modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .modal-content {
+      padding: 32px 36px 40px;
+    }
+    .modal-content .article-meta { margin-bottom: 16px; }
+    .modal-content h2 {
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .modal-content .modal-lead {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-content .article-section { margin-bottom: 24px; }
+    .modal-content .article-section h3 {
+      font-size: 1.05rem;
+      color: var(--terra);
+      margin-bottom: 10px;
+    }
+    .modal-content .article-section p {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .modal-content .article-section ul {
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.9;
+    }
+    .modal-source {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; gap: 20px; }
+      .modal-content { padding: 24px 20px 32px; }
+      .modal-content h2 { font-size: 1.3rem; }
+      .modal-hero { height: 200px; }
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--charcoal);
@@ -1336,6 +1518,7 @@
       <li><a href="#culture" data-lang="vi">Văn Hóa Chăm</a><a href="#culture" data-lang="en">Cham Culture</a></li>
       <li><a href="#visit" data-lang="vi">Tham Quan</a><a href="#visit" data-lang="en">Visit</a></li>
       <li><a href="#event" data-lang="vi">Sự Kiện</a><a href="#event" data-lang="en">Event</a></li>
+      <li><a href="#articles" data-lang="vi">Bài Viết</a><a href="#articles" data-lang="en">Articles</a></li>
       <li><a href="#contact" data-lang="vi">Liên Hệ</a><a href="#contact" data-lang="en">Contact</a></li>
       <li>
         <button class="lang-btn" id="langToggle" onclick="toggleLang()">🇬🇧 EN</button>
@@ -2132,6 +2315,295 @@
 
 
 <!-- ═══════════════════════════════════════════
+     ARTICLES
+═══════════════════════════════════════════ -->
+<section id="articles" class="section section-alt">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Tìm Hiểu Thêm</span>
+      <span class="section-tag" data-lang="en">Learn More</span>
+      <h2 class="section-title" data-lang="vi">Bài Viết Về Làng Gốm Bàu Trúc</h2>
+      <h2 class="section-title" data-lang="en">Articles About Bau Truc Pottery Village</h2>
+      <p class="section-subtitle" data-lang="vi">Khám phá chiều sâu lịch sử, văn hóa và di sản của người Chăm qua những bài viết chuyên sâu.</p>
+      <p class="section-subtitle" data-lang="en">Explore the depth of Cham history, culture and heritage through in-depth articles.</p>
+    </div>
+    <div class="articles-grid">
+
+      <!-- Bài 1 -->
+      <div class="article-card fade-up">
+        <div class="article-thumb">
+          <img src="images/technique-0.png" alt="Lịch sử làng gốm Bàu Trúc" onerror="this.style.display='none'" />
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" data-lang="vi">Lịch Sử</span>
+            <span class="article-cat" data-lang="en">History</span>
+            <span class="article-date">15/06/2026</span>
+          </div>
+          <h3 data-lang="vi">Hành Trình 2.000 Năm: Lịch Sử Hình Thành Làng Gốm Bàu Trúc</h3>
+          <h3 data-lang="en">A 2,000-Year Journey: The History of Bau Truc Pottery Village</h3>
+          <p data-lang="vi">Từ huyền thoại Po Klong Chan đến di sản UNESCO 2022 — câu chuyện về ngôi làng gốm cổ nhất Đông Nam Á và bí quyết trường tồn suốt hai thiên niên kỷ...</p>
+          <p data-lang="en">From the legend of Po Klong Chan to UNESCO 2022 recognition — the story of Southeast Asia's oldest pottery village and its secrets of survival through two millennia...</p>
+          <button class="article-read-btn" onclick="openModal('modal1')" data-lang="vi">Đọc bài viết →</button>
+          <button class="article-read-btn" onclick="openModal('modal1')" data-lang="en">Read article →</button>
+        </div>
+      </div>
+
+      <!-- Bài 2 -->
+      <div class="article-card fade-up">
+        <div class="article-thumb">
+          <img src="images/le_hoi_kate.png" alt="Văn hóa người Chăm" onerror="this.style.display='none'" />
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" data-lang="vi">Văn Hóa</span>
+            <span class="article-cat" data-lang="en">Culture</span>
+            <span class="article-date">17/06/2026</span>
+          </div>
+          <h3 data-lang="vi">Văn Hóa Chăm Bàu Trúc: Chế Độ Mẫu Hệ, Lễ Hội và Tập Quán Ngàn Đời</h3>
+          <h3 data-lang="en">Cham Culture at Bau Truc: Matriarchy, Festivals and Millennial Customs</h3>
+          <p data-lang="vi">Xã hội mẫu hệ hiếm có nơi người phụ nữ nắm giữ nghề gốm, gia sản và dòng họ — cùng những lễ hội Katê, Ramưwan đặc sắc không nơi nào có được...</p>
+          <p data-lang="en">A rare matriarchal society where women hold the craft, inheritance and family lineage — along with the unique Katê and Ramưwan festivals found nowhere else...</p>
+          <button class="article-read-btn" onclick="openModal('modal2')" data-lang="vi">Đọc bài viết →</button>
+          <button class="article-read-btn" onclick="openModal('modal2')" data-lang="en">Read article →</button>
+        </div>
+      </div>
+
+      <!-- Bài 3 -->
+      <div class="article-card fade-up">
+        <div class="article-thumb">
+          <img src="images/thap_po_klong_garai.png" alt="Di tích Chăm" onerror="this.style.display='none'" />
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" data-lang="vi">Di Tích</span>
+            <span class="article-cat" data-lang="en">Heritage Sites</span>
+            <span class="article-date">20/06/2026</span>
+          </div>
+          <h3 data-lang="vi">Di Tích và Tín Ngưỡng Chăm: Bí Ẩn Của Những Tháp Gạch Ngàn Tuổi</h3>
+          <h3 data-lang="en">Cham Heritage Sites & Beliefs: Mysteries of the Thousand-Year Brick Towers</h3>
+          <p data-lang="vi">Tháp Pô Klong Garai, Pô Rô Mê, Tháp Bà Pô Nagar — những công trình gạch nung không vữa kết dính vẫn đứng vững nghìn năm, ẩn chứa bí mật kỹ thuật xây dựng mà khoa học hiện đại chưa giải mã được...</p>
+          <p data-lang="en">Po Klong Garai, Po Ro Me, Po Nagar — mortar-free brick towers standing for a thousand years, concealing construction secrets that modern science has yet to decode...</p>
+          <button class="article-read-btn" onclick="openModal('modal3')" data-lang="vi">Đọc bài viết →</button>
+          <button class="article-read-btn" onclick="openModal('modal3')" data-lang="en">Read article →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MODALS
+═══════════════════════════════════════════ -->
+
+<!-- Modal 1: Lịch sử -->
+<div class="modal-overlay" id="modal1" onclick="closeModalOutside(event, 'modal1')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+    <div class="modal-hero">
+      <img src="images/technique-0.png" alt="Lịch sử Làng Gốm Bàu Trúc" onerror="this.style.display='none'" />
+    </div>
+    <div class="modal-content">
+      <div class="article-meta">
+        <span class="article-cat" data-lang="vi">Lịch Sử</span>
+        <span class="article-cat" data-lang="en">History</span>
+        <span class="article-date">15/06/2026 · Ban Quản lý Xã Ninh Phước</span>
+      </div>
+      <h2 data-lang="vi">Hành Trình 2.000 Năm: Lịch Sử Hình Thành Làng Gốm Bàu Trúc</h2>
+      <h2 data-lang="en">A 2,000-Year Journey: The History of Bau Truc Pottery Village</h2>
+      <p class="modal-lead" data-lang="vi">Bàu Trúc không chỉ là một làng nghề — đó là ký ức sống của nền văn minh Chăm Pa lừng lẫy, nơi mỗi chiếc bình đất nung mang theo hơi thở của hai thiên niên kỷ.</p>
+      <p class="modal-lead" data-lang="en">Bau Truc is not just a craft village — it is the living memory of the glorious Cham Pa civilization, where each terracotta vessel carries the breath of two millennia.</p>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Nguồn Gốc Huyền Thoại</h3>
+        <h3 data-lang="en">Legendary Origins</h3>
+        <p data-lang="vi">Theo truyền thuyết Chăm được lưu truyền qua nhiều thế hệ, nghề gốm Bàu Trúc do ông tổ <strong>Po Klong Chan</strong> và vợ là <strong>Po Bia Suer</strong> truyền dạy từ hơn 2.000 năm trước. Ông Po Klong Chan được người Chăm tôn thờ như vị thần bảo hộ của nghề gốm — mỗi năm vào dịp lễ Katê, dân làng vẫn thành kính dâng lễ cầu nguyện tại đền thờ ông.</p>
+        <p data-lang="en">According to Cham legend passed down through generations, the pottery craft of Bau Truc was taught by the ancestor <strong>Po Klong Chan</strong> and his wife <strong>Po Bia Suer</strong> more than 2,000 years ago. Po Klong Chan is revered by the Cham people as the patron deity of pottery — each year during the Kate festival, villagers still solemnly offer prayers at his temple.</p>
+        <p data-lang="vi">Điều đặc biệt: trong xã hội mẫu hệ Chăm, nghề gốm chỉ được truyền từ <strong>mẹ sang con gái</strong>, không bao giờ truyền sang con trai hay người ngoài gia tộc. Đây là cơ chế bảo tồn tự nhiên giúp kỹ thuật gốm Chăm tồn tại nguyên vẹn suốt hàng nghìn năm.</p>
+        <p data-lang="en">Remarkably: in Cham matriarchal society, the pottery craft is passed only from <strong>mother to daughter</strong>, never to sons or outsiders. This natural conservation mechanism has kept Cham pottery techniques intact for thousands of years.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Kỹ Thuật Độc Nhất Thế Giới</h3>
+        <h3 data-lang="en">The World's Most Unique Technique</h3>
+        <p data-lang="vi">Điều làm cho gốm Bàu Trúc khác biệt hoàn toàn với mọi nền gốm khác trên thế giới là kỹ thuật <strong>không dùng bàn xoay</strong>. Thay vì đặt đất sét lên bàn xoay như gốm Trung Hoa, Nhật Bản hay châu Âu, người thợ Chăm giữ nguyên sản phẩm đứng yên và tự mình đi vòng quanh, dùng đôi tay nhào nặn trực tiếp từ ngoài vào trong.</p>
+        <p data-lang="en">What sets Bau Truc pottery entirely apart from all other pottery traditions worldwide is the <strong>no-wheel technique</strong>. Instead of placing clay on a rotating wheel as in Chinese, Japanese, or European pottery, Cham artisans keep the product stationary and walk around it themselves, shaping directly from the outside in with bare hands.</p>
+        <p data-lang="vi">Nguyên liệu đất sét được lấy từ bờ sông Quao gần làng — loại đất đặc biệt có độ dẻo cao và màu đỏ tự nhiên. Sau khi nặn xong, gốm được phơi nắng rồi nung lộ thiên bằng rơm và củi trong khoảng 5–7 tiếng, không dùng lò nung kín. Chính cách nung lộ thiên này tạo ra những vệt màu đặc trưng — đỏ, đen, vàng đất — không thể tái tạo bằng lò công nghiệp.</p>
+        <p data-lang="en">Clay is sourced from the banks of the Quao River near the village — a special type with high plasticity and natural red color. After shaping, pottery is sun-dried then open-fired with straw and wood for 5–7 hours, without an enclosed kiln. This open-firing method creates characteristic color patterns — red, black, earth yellow — impossible to replicate with industrial kilns.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Trải Qua Thăng Trầm Lịch Sử</h3>
+        <h3 data-lang="en">Through Historical Upheavals</h3>
+        <p data-lang="vi">Suốt chiều dài lịch sử, Bàu Trúc đã trải qua nhiều biến động lớn của dân tộc Chăm — từ thời kỳ hưng thịnh của Vương quốc Chăm Pa (thế kỷ 2–15), qua giai đoạn sáp nhập vào lãnh thổ Đại Việt, đến hai cuộc kháng chiến chống Pháp và Mỹ. Trong tất cả những biến động đó, người phụ nữ Chăm ở Bàu Trúc vẫn giữ nghề gốm như giữ hồn cốt của dân tộc mình.</p>
+        <p data-lang="en">Throughout history, Bau Truc has witnessed major upheavals of the Cham people — from the flourishing period of the Cham Pa Kingdom (2nd–15th centuries), through integration into Dai Viet territory, to two wars against France and America. Through all these upheavals, Cham women at Bau Truc kept the pottery craft alive as the soul of their people.</p>
+        <p data-lang="vi">Năm 2022, UNESCO chính thức công nhận <strong>"Nghệ thuật làm gốm của người Chăm"</strong> là Di sản Văn hóa Phi vật thể cần được bảo vệ khẩn cấp — một vinh danh xứng đáng cho hành trình 2.000 năm kiên trì của những người phụ nữ Bàu Trúc.</p>
+        <p data-lang="en">In 2022, UNESCO officially recognized <strong>"The art of Cham pottery making"</strong> as an Intangible Cultural Heritage in Need of Urgent Safeguarding — a well-deserved honor for the 2,000-year perseverance of Bau Truc women.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Bàu Trúc Hôm Nay</h3>
+        <h3 data-lang="en">Bau Truc Today</h3>
+        <p data-lang="vi">Hiện nay làng có hơn <strong>400 hộ</strong> với khoảng <strong>85% dân số</strong> vẫn làm gốm. Sản phẩm không chỉ phục vụ đời sống hàng ngày mà còn trở thành hàng thủ công mỹ nghệ xuất khẩu đến các nước Nhật Bản, Hàn Quốc, Pháp, Đức. Làng gốm Bàu Trúc đã trở thành điểm đến văn hóa không thể bỏ qua khi đến thăm tỉnh Ninh Thuận.</p>
+        <p data-lang="en">Today the village has over <strong>400 households</strong> with approximately <strong>85% of the population</strong> still making pottery. Products serve not only daily life but have also become handicrafts exported to Japan, South Korea, France, and Germany. Bau Truc Pottery Village has become an unmissable cultural destination when visiting Ninh Thuan Province.</p>
+      </div>
+
+      <div class="modal-source" data-lang="vi">Nguồn tham khảo: Cổng thông tin điện tử tỉnh Ninh Thuận · Sở Văn hóa, Thể thao và Du lịch Ninh Thuận · UNESCO Intangible Cultural Heritage 2022</div>
+      <div class="modal-source" data-lang="en">Sources: Ninh Thuan Province E-Government Portal · Department of Culture, Sports and Tourism of Ninh Thuan · UNESCO Intangible Cultural Heritage 2022</div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: Văn hóa -->
+<div class="modal-overlay" id="modal2" onclick="closeModalOutside(event, 'modal2')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+    <div class="modal-hero">
+      <img src="images/le_hoi_kate.png" alt="Lễ hội Katê người Chăm" onerror="this.style.display='none'" />
+    </div>
+    <div class="modal-content">
+      <div class="article-meta">
+        <span class="article-cat" data-lang="vi">Văn Hóa</span>
+        <span class="article-cat" data-lang="en">Culture</span>
+        <span class="article-date">17/06/2026 · Ban Quản lý Xã Ninh Phước</span>
+      </div>
+      <h2 data-lang="vi">Văn Hóa Chăm Bàu Trúc: Chế Độ Mẫu Hệ, Lễ Hội và Tập Quán Ngàn Đời</h2>
+      <h2 data-lang="en">Cham Culture at Bau Truc: Matriarchy, Festivals and Millennial Customs</h2>
+      <p class="modal-lead" data-lang="vi">Trong thế giới hiện đại nơi các nền văn hóa truyền thống đang dần biến mất, cộng đồng Chăm ở Bàu Trúc vẫn sống theo những tập quán ngàn năm — một xã hội mẫu hệ độc đáo hiếm có còn lại trên Trái Đất.</p>
+      <p class="modal-lead" data-lang="en">In a modern world where traditional cultures are gradually disappearing, the Cham community at Bau Truc still lives by millennial customs — a rare matriarchal society that still survives on Earth.</p>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Xã Hội Mẫu Hệ — Người Phụ Nữ Là Trung Tâm</h3>
+        <h3 data-lang="en">Matriarchal Society — Women at the Center</h3>
+        <p data-lang="vi">Người Chăm ở Bàu Trúc theo chế độ <strong>mẫu hệ</strong> (matrilineal) — một trong số ít cộng đồng trên thế giới còn duy trì truyền thống này. Theo đó:</p>
+        <p data-lang="en">The Cham people at Bau Truc follow a <strong>matrilineal</strong> system — one of the few communities in the world still maintaining this tradition. Accordingly:</p>
+        <ul data-lang="vi">
+          <li>Con cái mang họ mẹ, không mang họ cha</li>
+          <li>Tài sản và đất đai thừa kế theo dòng nữ</li>
+          <li>Phụ nữ chủ động hôn nhân — con gái đi hỏi chồng</li>
+          <li>Nghề gốm chỉ truyền từ mẹ sang con gái</li>
+          <li>Chồng về ở nhà vợ sau khi cưới</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Children take the mother's surname, not the father's</li>
+          <li>Property and land are inherited through the female line</li>
+          <li>Women initiate marriage — daughters propose to husbands</li>
+          <li>The pottery craft passes only from mother to daughter</li>
+          <li>Husbands move into the wife's home after marriage</li>
+        </ul>
+        <p data-lang="vi">Chế độ mẫu hệ này không chỉ là tập quán xã hội mà còn là cơ chế bảo tồn hoàn hảo: khi nghề gốm gắn liền với người phụ nữ trong gia đình, nó không thể bị thất truyền qua hôn nhân hay di dân.</p>
+        <p data-lang="en">This matriarchal system is not just a social custom but a perfect conservation mechanism: when the pottery craft is tied to women in the family, it cannot be lost through marriage or migration.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Lễ Hội Katê — Tết Lớn Nhất Của Người Chăm</h3>
+        <h3 data-lang="en">Kate Festival — The Cham People's Biggest Celebration</h3>
+        <p data-lang="vi">Lễ hội <strong>Katê</strong> diễn ra vào tháng 7 lịch Chăm (khoảng tháng 10 dương lịch) là ngày tết lớn nhất trong năm của người Chăm Bàlamon — tương đương Tết Nguyên Đán của người Kinh. Lễ hội kéo dài 3 ngày với các nghi thức:</p>
+        <p data-lang="en">The <strong>Katê</strong> festival, held in the 7th month of the Cham calendar (around October), is the biggest celebration of the year for Balamon Cham people — equivalent to Tet for the Kinh people. The festival lasts 3 days with rituals including:</p>
+        <ul data-lang="vi">
+          <li><strong>Ngày 1:</strong> Lễ rước y phục thần thánh lên đền tháp, tắm tượng thần</li>
+          <li><strong>Ngày 2:</strong> Lễ tại làng, dâng lễ vật lên tổ tiên, múa Apsara, đánh trống Baranung</li>
+          <li><strong>Ngày 3:</strong> Lễ tại gia đình, con cái về thăm cha mẹ vợ (theo tục mẫu hệ)</li>
+        </ul>
+        <ul data-lang="en">
+          <li><strong>Day 1:</strong> Ceremonial procession of divine garments to the tower temple, bathing of deity statues</li>
+          <li><strong>Day 2:</strong> Village ceremony, offering to ancestors, Apsara dance, Baranung drum performance</li>
+          <li><strong>Day 3:</strong> Family ceremony, children visit wife's parents (following matriarchal custom)</li>
+        </ul>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Lễ Ramưwan — Tháng Chay Tịnh Của Người Chăm Islam</h3>
+        <h3 data-lang="en">Ramuwan Festival — The Fasting Month of Cham Islam</h3>
+        <p data-lang="vi">Trong khi người Chăm Bàlamon theo Ấn Độ giáo, một bộ phận người Chăm ở Ninh Thuận theo <strong>Hồi giáo bản địa (Islam Chăm)</strong> với lễ Ramưwan — phiên bản Ramadan đã được bản địa hóa qua nhiều thế kỷ, pha trộn với tín ngưỡng thờ cúng tổ tiên Chăm truyền thống.</p>
+        <p data-lang="en">While Balamon Cham follow Hinduism, a portion of Cham people in Ninh Thuan practice <strong>indigenous Islam (Cham Islam)</strong> with the Ramuwan festival — a version of Ramadan localized over centuries, blended with traditional Cham ancestor worship beliefs.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Trang Phục và Ẩm Thực Chăm</h3>
+        <h3 data-lang="en">Cham Clothing and Cuisine</h3>
+        <p data-lang="vi">Trang phục truyền thống Chăm nổi bật với áo dài trắng (cho phụ nữ trong lễ hội) và khăn đội đầu nhiều màu sắc. Vải dệt thủ công của người Chăm sử dụng hoa văn hình học cách điệu từ motif tháp Chăm và thiên nhiên.</p>
+        <p data-lang="en">Traditional Cham clothing features white ao dai (for women at festivals) and colorful head scarves. Handwoven Cham fabric uses geometric patterns stylized from Cham tower motifs and nature.</p>
+        <p data-lang="vi">Ẩm thực Chăm đặc trưng với <strong>bánh gừng Chăm, cơm nị (cơm nấu với nước cốt dừa), cà ri dê, canh bí ngô nấu với cá khô</strong>. Đặc biệt, bánh căn — món ăn phổ biến nhất Phan Rang — được cho là có nguồn gốc từ công thức nấu ăn truyền thống của người Chăm.</p>
+        <p data-lang="en">Cham cuisine features <strong>Cham ginger cake, cơm nị (rice cooked with coconut milk), goat curry, pumpkin soup with dried fish</strong>. Notably, banh can — the most popular dish in Phan Rang — is believed to originate from traditional Cham cooking recipes.</p>
+      </div>
+
+      <div class="modal-source" data-lang="vi">Nguồn tham khảo: Viện Nghiên cứu Văn hóa Việt Nam · Sở Văn hóa Ninh Thuận · Cổng thông tin điện tử tỉnh Ninh Thuận</div>
+      <div class="modal-source" data-lang="en">Sources: Vietnam Institute of Cultural Studies · Ninh Thuan Department of Culture · Ninh Thuan Province E-Government Portal</div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: Di tích -->
+<div class="modal-overlay" id="modal3" onclick="closeModalOutside(event, 'modal3')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+    <div class="modal-hero">
+      <img src="images/thap_po_klong_garai.png" alt="Tháp Pô Klong Garai" onerror="this.style.display='none'" />
+    </div>
+    <div class="modal-content">
+      <div class="article-meta">
+        <span class="article-cat" data-lang="vi">Di Tích</span>
+        <span class="article-cat" data-lang="en">Heritage Sites</span>
+        <span class="article-date">20/06/2026 · Ban Quản lý Xã Ninh Phước</span>
+      </div>
+      <h2 data-lang="vi">Di Tích và Tín Ngưỡng Chăm: Bí Ẩn Của Những Tháp Gạch Ngàn Tuổi</h2>
+      <h2 data-lang="en">Cham Heritage Sites & Beliefs: Mysteries of the Thousand-Year Brick Towers</h2>
+      <p class="modal-lead" data-lang="vi">Giữa vùng đất nắng gió Ninh Thuận, những ngọn tháp Chăm đứng sừng sững như những người khổng lồ vượt thời gian — gần 1.000 năm tuổi, xây bằng gạch không có vữa kết dính, vẫn trơ gan cùng tuế nguyệt.</p>
+      <p class="modal-lead" data-lang="en">Amid the sun-scorched land of Ninh Thuan, Cham towers stand like time-defying giants — nearly 1,000 years old, built with bricks containing no mortar, still standing firm against the ages.</p>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Tháp Pô Klong Garai — Kiệt Tác Kiến Trúc Chăm</h3>
+        <h3 data-lang="en">Po Klong Garai Tower — A Cham Architectural Masterpiece</h3>
+        <p data-lang="vi">Tọa lạc trên đồi Trầu (TP. Phan Rang-Tháp Chàm), <strong>tháp Pô Klong Garai</strong> được xây dựng vào cuối thế kỷ 13 - đầu thế kỷ 14, dưới triều vua Chăm Jaya Simhavarman III. Quần thể gồm 3 tháp: tháp chính (Kalan) cao 20,5m thờ vua Pô Klong Garai được Shivaite hóa thành thần Shiva; tháp Lửa (Kosaghra) và tháp Cổng (Gopura).</p>
+        <p data-lang="en">Located on Trau Hill (Phan Rang-Thap Cham City), <strong>Po Klong Garai Tower</strong> was built in the late 13th to early 14th century under the Cham king Jaya Simhavarman III. The complex includes 3 towers: the main tower (Kalan) 20.5m tall worshipping King Po Klong Garai deified as Shiva; the Fire Tower (Kosaghra); and the Gate Tower (Gopura).</p>
+        <p data-lang="vi">Vua Pô Klong Garai (1151–1205) được người Chăm tôn thờ vì đã công lao dẫn thủy nhập điền, giúp vùng đất khô cằn Ninh Thuận có nước canh tác. Hệ thống kênh tưới tiêu ông xây dựng vẫn còn được sử dụng đến ngày nay.</p>
+        <p data-lang="en">King Po Klong Garai (1151–1205) is venerated by the Cham people for his achievement in constructing irrigation systems, bringing water to the arid lands of Ninh Thuan for agriculture. The irrigation system he built is still in use today.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Bí Ẩn Kỹ Thuật Xây Tháp Không Vữa</h3>
+        <h3 data-lang="en">The Mystery of Mortar-Free Tower Construction</h3>
+        <p data-lang="vi">Điều làm các nhà khoa học bối rối nhất là: <strong>những viên gạch tháp Chăm được xếp khít nhau hoàn toàn không có vữa kết dính</strong>, vậy mà sau gần 1.000 năm mưa nắng, gió bão — tháp vẫn đứng vững. Nhiều giả thuyết đã được đưa ra:</p>
+        <p data-lang="en">What puzzles scientists most is: <strong>the Cham tower bricks are stacked tightly with absolutely no binding mortar</strong>, yet after nearly 1,000 years of rain, sun, and storms — the towers still stand firm. Many theories have been proposed:</p>
+        <ul data-lang="vi">
+          <li>Gạch được nung ở nhiệt độ cao tạo ra lực hút tự nhiên giữa các viên</li>
+          <li>Dùng nhựa cây dầu rái (một loại nhựa đặc biệt của Nam Bộ) làm chất kết dính hữu cơ</li>
+          <li>Kỹ thuật mài nhẵn bề mặt gạch đến mức chúng tự bám vào nhau</li>
+          <li>Gạch được nung tại chỗ sau khi xếp — công nghệ "nung toàn bộ công trình"</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Bricks were fired at high temperatures creating natural adhesion between pieces</li>
+          <li>Oil resin from the dau rai tree (a special South Vietnamese resin) used as organic binding agent</li>
+          <li>Surface grinding technique to make bricks self-adhering</li>
+          <li>Bricks were fired in-situ after stacking — "whole structure firing" technology</li>
+        </ul>
+        <p data-lang="vi">Cho đến nay, <strong>chưa có giả thuyết nào được khoa học xác nhận hoàn toàn</strong>. Bí ẩn của tháp Chăm vẫn là một trong những câu đố kiến trúc thú vị nhất châu Á.</p>
+        <p data-lang="en">To this day, <strong>no theory has been fully confirmed by science</strong>. The mystery of Cham towers remains one of the most fascinating architectural puzzles in Asia.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Tháp Bà Pô Nagar — Nơi Hội Tụ Tín Ngưỡng</h3>
+        <h3 data-lang="en">Po Nagar Tower — A Convergence of Beliefs</h3>
+        <p data-lang="vi"><strong>Tháp Bà Pô Nagar</strong> tại Nha Trang (cách Bàu Trúc ~100km) là quần thể tháp Chăm quan trọng nhất còn lại, thờ nữ thần Pô Nagar — Mẹ xứ sở trong tín ngưỡng Chăm. Điều thú vị là tháp này ngày nay còn được người Kinh, người Hoa đến thờ phượng dưới danh hiệu "Thiên Y A Na Thánh Mẫu" — một ví dụ điển hình về sự giao thoa văn hóa tín ngưỡng ở Việt Nam.</p>
+        <p data-lang="en"><strong>Po Nagar Tower</strong> in Nha Trang (about 100km from Bau Truc) is the most important remaining Cham tower complex, worshipping the goddess Po Nagar — the Mother of the Land in Cham belief. Notably, this tower is also visited today by Kinh and Chinese people under the name "Thien Y A Na Holy Mother" — a prime example of religious cultural exchange in Vietnam.</p>
+      </div>
+
+      <div class="article-section">
+        <h3 data-lang="vi">Mối Liên Hệ Giữa Tháp Chăm và Gốm Bàu Trúc</h3>
+        <h3 data-lang="en">The Connection Between Cham Towers and Bau Truc Pottery</h3>
+        <p data-lang="vi">Không phải ngẫu nhiên mà gốm Bàu Trúc và tháp Chăm cùng sử dụng loại đất sét đỏ đặc trưng của vùng Ninh Thuận. Nhiều nghiên cứu cho thấy <strong>người thợ gốm Chăm cổ đại chính là những người cung cấp gạch xây tháp</strong> — loại gạch được làm bằng kỹ thuật gốm truyền thống, nung ở nhiệt độ cao hơn gốm thông thường. Vì vậy, hiểu gốm Bàu Trúc là hiểu một phần bí mật của tháp Chăm.</p>
+        <p data-lang="en">It is no coincidence that Bau Truc pottery and Cham towers both use the characteristic red clay of Ninh Thuan. Research shows that <strong>ancient Cham potters were the very people who supplied tower-building bricks</strong> — bricks made using traditional pottery techniques, fired at higher temperatures than ordinary pottery. Thus, understanding Bau Truc pottery is understanding part of the secret of Cham towers.</p>
+      </div>
+
+      <div class="modal-source" data-lang="vi">Nguồn tham khảo: Bộ Văn hóa, Thể thao và Du lịch Việt Nam · Trung tâm Quản lý Di tích Ninh Thuận · Tạp chí Khảo cổ học Việt Nam</div>
+      <div class="modal-source" data-lang="en">Sources: Ministry of Culture, Sports and Tourism of Vietnam · Ninh Thuan Heritage Management Center · Vietnam Journal of Archaeology</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
      FOOTER
 ═══════════════════════════════════════════ -->
 <footer>
@@ -2217,6 +2689,24 @@
       currentLang === 'vi' ? '🇬🇧 EN' : '🇻🇳 VI';
     document.documentElement.lang = currentLang;
   }
+
+  // ─ Article modals
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e, id) {
+    if (e.target === document.getElementById(id)) closeModal(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['modal1','modal2','modal3'].forEach(id => closeModal(id));
+    }
+  });
 
   // ─ Culture tabs
   function showTab(tabId) {
