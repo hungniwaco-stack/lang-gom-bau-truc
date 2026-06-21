@@ -430,13 +430,19 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
     .card-top {
-      height: 200px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 3.5rem;
       position: relative;
       overflow: hidden;
+    }
+    .card-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .card-top-1 { background: linear-gradient(135deg, #D35400, #F0956A); }
     .card-top-2 { background: linear-gradient(135deg, #2C3E50, #4A6080); }
@@ -1227,11 +1233,7 @@
 
       <div class="about-img-wrap fade-up">
         <div class="about-img-main">
-          <div class="img-placeholder">
-            <span class="icon">🏺</span>
-            <p data-lang="vi">Ảnh nghệ nhân làm gốm<br/><small>(Cập nhật sớm)</small></p>
-            <p data-lang="en">Artisan at work<br/><small>(Photo coming soon)</small></p>
-          </div>
+          <img src="images/technique-0.png" alt="Gốm Chăm Bàu Trúc và Tháp Bà Pô Nagar hoàng hôn" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="about-img-badge">
           <span class="big">UNESCO</span>
@@ -1337,7 +1339,7 @@
     <div class="technique-grid">
       <div class="technique-card fade-up">
         <div class="card-top card-top-1">
-          🖐
+          <img src="images/technique-1.png" alt="Nghệ nhân Chăm nặn gốm bằng tay" onerror="this.style.display='none'" />
           <span class="card-step">1</span>
         </div>
         <div class="card-body">
@@ -1349,7 +1351,7 @@
       </div>
       <div class="technique-card fade-up">
         <div class="card-top card-top-2">
-          🌿
+          <img src="images/technique-2.png" alt="Chà bóng và nhuộm màu tự nhiên" onerror="this.style.display='none'" />
           <span class="card-step">2</span>
         </div>
         <div class="card-body">
@@ -1361,7 +1363,7 @@
       </div>
       <div class="technique-card fade-up">
         <div class="card-top card-top-3">
-          🔥
+          <img src="images/technique-3.png" alt="Nung gốm lộ thiên ngoài trời" onerror="this.style.display='none'" />
           <span class="card-step">3</span>
         </div>
         <div class="card-body">
