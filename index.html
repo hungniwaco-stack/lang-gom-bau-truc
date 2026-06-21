@@ -592,8 +592,25 @@
     .festival-item {
       background: #fff;
       border-radius: 12px;
-      padding: 24px;
+      overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .festival-item:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+    .festival-img {
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--terra), #8B3A0F);
+    }
+    .festival-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .festival-item:hover .festival-img img { transform: scale(1.05); }
+    .festival-item-body {
+      padding: 20px;
       display: flex;
       gap: 16px;
       align-items: flex-start;
@@ -1531,54 +1548,74 @@
     <div id="tab-festivals" class="tab-content">
       <div class="festival-list">
         <div class="festival-item fade-up">
-          <div class="festival-month">
-            <span class="m-num">10</span>
-            <span class="m-label" data-lang="vi">Tháng</span>
-            <span class="m-label" data-lang="en">Month</span>
+          <div class="festival-img">
+            <img src="images/le_hoi_kate.png" alt="Lễ hội Katê người Chăm" onerror="this.style.display='none'" />
           </div>
-          <div class="festival-info">
-            <h3 data-lang="vi">Lễ hội Katê</h3>
-            <h3 data-lang="en">Kate Festival</h3>
-            <p data-lang="vi">Lễ hội lớn nhất của người Chăm Bàlamôn, tưởng nhớ tổ tiên và các vị thần. Diễn ra tại các đền tháp với nghi lễ rước y phục thần linh, múa hát truyền thống và âm nhạc dân gian đặc sắc.</p>
-            <p data-lang="en">The biggest festival of Brahman Cham people, honoring ancestors and deities. Held at temple towers with deity robe ceremonies, traditional dance, and folk music.</p>
-          </div>
-        </div>
-        <div class="festival-item fade-up">
-          <div class="festival-month">
-            <span class="m-num">3</span>
-            <span class="m-label" data-lang="vi">Âm lịch</span>
-            <span class="m-label" data-lang="en">Lunar</span>
-          </div>
-          <div class="festival-info">
-            <h3 data-lang="vi">Lễ hội Tháp Bà Pô Nagar</h3>
-            <h3 data-lang="en">Po Nagar Temple Festival</h3>
-            <p data-lang="vi">Lễ hội văn hóa lớn của cả người Chăm và người Việt tại Nha Trang. Thu hút hàng vạn du khách hành hương và tham quan mỗi năm, là điểm giao thoa văn hóa Chăm – Việt độc đáo.</p>
-            <p data-lang="en">A major cultural festival for both Cham and Viet people in Nha Trang. Drawing tens of thousands of pilgrims and visitors annually — a unique Cham-Viet cultural crossroads.</p>
+          <div class="festival-item-body">
+            <div class="festival-month">
+              <span class="m-num">10</span>
+              <span class="m-label" data-lang="vi">Tháng</span>
+              <span class="m-label" data-lang="en">Month</span>
+            </div>
+            <div class="festival-info">
+              <h3 data-lang="vi">Lễ hội Katê</h3>
+              <h3 data-lang="en">Kate Festival</h3>
+              <p data-lang="vi">Lễ hội lớn nhất của người Chăm Bàlamôn, tưởng nhớ tổ tiên và các vị thần. Diễn ra tại các đền tháp với nghi lễ rước y phục thần linh, múa hát truyền thống và âm nhạc dân gian đặc sắc.</p>
+              <p data-lang="en">The biggest festival of Brahman Cham people, honoring ancestors and deities. Held at temple towers with deity robe ceremonies, traditional dance, and folk music.</p>
+            </div>
           </div>
         </div>
         <div class="festival-item fade-up">
-          <div class="festival-month">
-            <span class="m-num">6</span>
-            <span class="m-label">2026</span>
+          <div class="festival-img">
+            <img src="images/le_hoi_thap_ba_po_nagar.png" alt="Lễ hội Tháp Bà Pô Nagar" onerror="this.style.display='none'" />
           </div>
-          <div class="festival-info">
-            <h3 data-lang="vi">Ngày hội Văn hóa Chăm lần VI</h3>
-            <h3 data-lang="en">6th Cham Cultural Festival</h3>
-            <p data-lang="vi">26–28/06/2026 tại Khánh Hòa. Chủ đề: "Bảo tồn, phát huy bản sắc văn hóa dân tộc Chăm trong kỷ nguyên mới". Sự kiện quy mô lớn nhất năm 2026.</p>
-            <p data-lang="en">June 26–28, 2026 in Khanh Hoa. Theme: "Preserving and Promoting Cham Cultural Identity in the New Era." The largest event of 2026.</p>
+          <div class="festival-item-body">
+            <div class="festival-month">
+              <span class="m-num">3</span>
+              <span class="m-label" data-lang="vi">Âm lịch</span>
+              <span class="m-label" data-lang="en">Lunar</span>
+            </div>
+            <div class="festival-info">
+              <h3 data-lang="vi">Lễ hội Tháp Bà Pô Nagar</h3>
+              <h3 data-lang="en">Po Nagar Temple Festival</h3>
+              <p data-lang="vi">Lễ hội văn hóa lớn của cả người Chăm và người Việt tại Nha Trang. Thu hút hàng vạn du khách hành hương và tham quan mỗi năm, là điểm giao thoa văn hóa Chăm – Việt độc đáo.</p>
+              <p data-lang="en">A major cultural festival for both Cham and Viet people in Nha Trang. Drawing tens of thousands of pilgrims and visitors annually — a unique Cham-Viet cultural crossroads.</p>
+            </div>
           </div>
         </div>
         <div class="festival-item fade-up">
-          <div class="festival-month">
-            <span class="m-num">7</span>
-            <span class="m-label" data-lang="vi">Âm lịch</span>
-            <span class="m-label" data-lang="en">Lunar</span>
+          <div class="festival-img">
+            <img src="images/ngay_hoi_van_hoa_cham_vi.png" alt="Ngày hội Văn hóa Chăm lần VI" onerror="this.style.display='none'" />
           </div>
-          <div class="festival-info">
-            <h3 data-lang="vi">Lễ Ramưwan</h3>
-            <h3 data-lang="en">Ramưwan Festival</h3>
-            <p data-lang="vi">Lễ hội của người Chăm Islam (Chăm Bàni), tương tự tháng Ramadan — tháng ăn chay, cầu nguyện và đoàn tụ gia đình.</p>
-            <p data-lang="en">Festival of Islam Cham (Cham Bani), similar to Ramadan — a month of fasting, prayer, and family reunion.</p>
+          <div class="festival-item-body">
+            <div class="festival-month">
+              <span class="m-num">6</span>
+              <span class="m-label">2026</span>
+            </div>
+            <div class="festival-info">
+              <h3 data-lang="vi">Ngày hội Văn hóa Chăm lần VI</h3>
+              <h3 data-lang="en">6th Cham Cultural Festival</h3>
+              <p data-lang="vi">26–28/06/2026 tại Khánh Hòa. Chủ đề: "Bảo tồn, phát huy bản sắc văn hóa dân tộc Chăm trong kỷ nguyên mới". Sự kiện quy mô lớn nhất năm 2026.</p>
+              <p data-lang="en">June 26–28, 2026 in Khanh Hoa. Theme: "Preserving and Promoting Cham Cultural Identity in the New Era." The largest event of 2026.</p>
+            </div>
+          </div>
+        </div>
+        <div class="festival-item fade-up">
+          <div class="festival-img">
+            <img src="images/le_ramuwan.png" alt="Lễ Ramưwan người Chăm" onerror="this.style.display='none'" />
+          </div>
+          <div class="festival-item-body">
+            <div class="festival-month">
+              <span class="m-num">7</span>
+              <span class="m-label" data-lang="vi">Âm lịch</span>
+              <span class="m-label" data-lang="en">Lunar</span>
+            </div>
+            <div class="festival-info">
+              <h3 data-lang="vi">Lễ Ramưwan</h3>
+              <h3 data-lang="en">Ramưwan Festival</h3>
+              <p data-lang="vi">Lễ hội của người Chăm Islam (Chăm Bàni), tương tự tháng Ramadan — tháng ăn chay, cầu nguyện và đoàn tụ gia đình.</p>
+              <p data-lang="en">Festival of Islam Cham (Cham Bani), similar to Ramadan — a month of fasting, prayer, and family reunion.</p>
+            </div>
           </div>
         </div>
       </div>
