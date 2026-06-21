@@ -2988,6 +2988,7 @@
     document.getElementById('langToggle').textContent =
       currentLang === 'vi' ? '🇬🇧 EN' : '🇻🇳 VI';
     document.documentElement.lang = currentLang;
+    document.getElementById('navLinks').classList.remove('open');
   }
 
   // ─ Article modals
