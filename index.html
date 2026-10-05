@@ -333,8 +333,9 @@
     .news-track a:hover { color: var(--gold); }
     @keyframes newsScroll { to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) {
-      .news-track { animation: none; }
-      .news-viewport { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+      .news-track { animation: none; width: auto; flex-wrap: wrap; }
+      .news-track a { white-space: normal; padding: 8px 20px; }
+      .news-viewport .news-track a[aria-hidden="true"] { display: none !important; }
     }
 
     /* ─── STATS BAR ─── */
