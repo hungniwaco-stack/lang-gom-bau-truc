@@ -338,6 +338,50 @@
       .news-viewport .news-track a[aria-hidden="true"] { display: none !important; }
     }
 
+    /* ─── MUSIC ─── */
+    .music-filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .music-chip {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--charcoal);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .music-chip:hover, .music-chip.active { background: var(--terra); border-color: var(--terra); color: #fff; }
+    .music-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .music-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .music-thumb { position: relative; aspect-ratio: 16 / 9; background: #000 center / cover no-repeat; }
+    .music-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .music-play { position: absolute; inset: 0; width: 100%; background: none; border: 0; cursor: pointer; }
+    .music-play::after {
+      content: '\25B6\FE0E';
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(211,84,0,0.92);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 4px;
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+    .music-play:hover::after { transform: scale(1.1); }
+    .music-info { padding: 14px 16px; }
+    .music-info h3 { font-size: 1rem; color: var(--charcoal); margin-bottom: 4px; }
+    .music-cat { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); font-weight: 600; }
+    .music-empty { text-align: center; color: var(--text-light); }
+    @media (max-width: 900px) { .music-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .music-grid { grid-template-columns: 1fr; } }
+
     /* ─── STATS BAR ─── */
     .stats-bar {
       background: var(--charcoal);
@@ -1575,6 +1619,7 @@
       <li><a href="#technique" data-lang="vi">Kỹ Thuật</a><a href="#technique" data-lang="en">Craft</a></li>
       <li><a href="#culture" data-lang="vi">Văn Hóa Chăm</a><a href="#culture" data-lang="en">Cham Culture</a></li>
       <li><a href="#visit" data-lang="vi">Tham Quan</a><a href="#visit" data-lang="en">Visit</a></li>
+      <li><a href="#music" data-lang="vi">Âm Nhạc</a><a href="#music" data-lang="en">Music</a></li>
       <li><a href="#event" data-lang="vi">Sự Kiện</a><a href="#event" data-lang="en">Event</a></li>
       <li><a href="#contact" data-lang="vi">Liên Hệ</a><a href="#contact" data-lang="en">Contact</a></li>
       <li>
@@ -2399,6 +2444,31 @@
 
 
 <!-- ═══════════════════════════════════════════
+     MUSIC
+═══════════════════════════════════════════ -->
+<section id="music" class="section">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Âm Nhạc</span>
+      <span class="section-tag" data-lang="en">Music</span>
+      <h2 class="section-title" data-lang="vi">Âm Nhạc Ninh Phước &amp; Văn Hóa Chăm</h2>
+      <h2 class="section-title" data-lang="en">Music of Ninh Phuoc &amp; Cham Culture</h2>
+    </div>
+    <div class="music-filters" id="musicFilters">
+      <button type="button" class="music-chip active" data-cat="all"><span data-lang="vi">Tất cả</span><span data-lang="en">All</span></button>
+      <button type="button" class="music-chip" data-cat="ninh-phuoc"><span data-lang="vi">Ninh Phước</span><span data-lang="en">Ninh Phuoc</span></button>
+      <button type="button" class="music-chip" data-cat="cham"><span data-lang="vi">Văn hóa Chăm</span><span data-lang="en">Cham Culture</span></button>
+    </div>
+    <div class="music-grid" id="musicGrid"></div>
+    <p class="music-empty" id="musicEmpty">
+      <span data-lang="vi">🎵 Danh mục nhạc đang được cập nhật. Các ca khúc về Ninh Phước và văn hóa Chăm sẽ sớm có tại đây.</span>
+      <span data-lang="en">🎵 Music collection coming soon. Songs about Ninh Phuoc and Cham culture will appear here.</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
      EVENT
 ═══════════════════════════════════════════ -->
 <section id="event">
@@ -3037,6 +3107,68 @@
   const setNewsSpeed = () => { newsTrack.style.animationDuration = newsTrack.scrollWidth / 2 / 40 + 's'; };
   setNewsSpeed();
   window.addEventListener('load', setNewsSpeed);
+
+  // ─ Music list: to add a track, paste its YouTube link into MUSIC below.
+  //   cat = 'ninh-phuoc' (Ninh Phước) or 'cham' (Văn hóa Chăm); vi/en = titles.
+  //   { url: 'https://www.youtube.com/watch?v=XXXXXXXXXXX', cat: 'cham', vi: 'Tên bài – ca sĩ', en: 'Title – artist' },
+  const MUSIC = [
+  ];
+  const MUSIC_CATS = { 'ninh-phuoc': ['Ninh Phước', 'Ninh Phuoc'], cham: ['Văn hóa Chăm', 'Cham Culture'] };
+  (function renderMusic() {
+    const grid = document.getElementById('musicGrid');
+    const empty = document.getElementById('musicEmpty');
+    const filters = document.getElementById('musicFilters');
+    const el = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
+    const bilingual = (parent, tag, cls, vi, en) => {
+      [['vi', vi], ['en', en || vi]].forEach(([lang, text]) => {
+        const e = el(tag, cls); e.dataset.lang = lang; e.textContent = text; parent.appendChild(e);
+      });
+    };
+
+    MUSIC.forEach(m => {
+      const id = ((m.url || '').match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([\w-]{11})/) || [])[1];
+      if (!id) return;
+      const card = el('div', 'music-card');
+      card.dataset.cat = m.cat || '';
+      const thumb = el('div', 'music-thumb');
+      thumb.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+      const play = el('button', 'music-play');
+      play.type = 'button';
+      play.setAttribute('aria-label', m.vi);
+      play.onclick = () => {
+        const f = el('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        f.title = m.vi;
+        thumb.replaceChildren(f);
+      };
+      thumb.appendChild(play);
+      const info = el('div', 'music-info');
+      bilingual(info, 'h3', '', m.vi, m.en);
+      const cat = MUSIC_CATS[m.cat];
+      if (cat) bilingual(info, 'div', 'music-cat', cat[0], cat[1]);
+      card.append(thumb, info);
+      grid.appendChild(card);
+    });
+
+    const cards = [...grid.children];
+    const show = c => {
+      let n = 0;
+      cards.forEach(card => {
+        const on = c === 'all' || card.dataset.cat === c;
+        card.style.display = on ? '' : 'none';
+        if (on) n++;
+      });
+      empty.style.display = n ? 'none' : '';
+      filters.style.display = cards.length ? '' : 'none';
+    };
+    filters.querySelectorAll('.music-chip').forEach(b => b.addEventListener('click', () => {
+      filters.querySelectorAll('.music-chip').forEach(x => x.classList.toggle('active', x === b));
+      show(b.dataset.cat);
+    }));
+    show('all');
+  })();
 
   // ─ Language toggle
   let currentLang = 'vi';
