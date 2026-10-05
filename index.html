@@ -376,6 +376,21 @@
     @media (max-width: 900px) { .music-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .music-grid { grid-template-columns: 1fr; } }
 
+    /* ─── ADS ─── */
+    .ad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .ad-card { display: flex; flex-direction: column; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s; }
+    .ad-card:hover { transform: translateY(-3px); }
+    .ad-img { aspect-ratio: 16 / 10; background: linear-gradient(135deg, #E8A87C, #D35400); }
+    .ad-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ad-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .ad-badge { align-self: flex-start; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--terra); border: 1px solid var(--terra); border-radius: 20px; padding: 2px 10px; }
+    .ad-body h3 { font-size: 1rem; color: var(--charcoal); }
+    .ad-body p { font-size: 0.85rem; color: var(--text-light); }
+    .ad-price { font-weight: 700; color: var(--terra-dark); }
+    .ad-cta { margin-top: auto; align-self: flex-start; padding: 9px 20px; font-size: 0.85rem; }
+    @media (max-width: 900px) { .ad-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .ad-grid { grid-template-columns: 1fr; } }
+
     /* ─── STATS BAR ─── */
     .stats-bar {
       background: var(--charcoal);
@@ -1614,6 +1629,7 @@
       <li><a href="#culture" data-lang="vi">Văn Hóa Chăm</a><a href="#culture" data-lang="en">Cham Culture</a></li>
       <li><a href="#visit" data-lang="vi">Tham Quan</a><a href="#visit" data-lang="en">Visit</a></li>
       <li><a href="#music" data-lang="vi">Âm Nhạc</a><a href="#music" data-lang="en">Music</a></li>
+      <li><a href="#ads" data-lang="vi">Quảng Cáo</a><a href="#ads" data-lang="en">Ads</a></li>
       <li><a href="#event" data-lang="vi">Sự Kiện</a><a href="#event" data-lang="en">Event</a></li>
       <li><a href="#contact" data-lang="vi">Liên Hệ</a><a href="#contact" data-lang="en">Contact</a></li>
       <li>
@@ -2453,6 +2469,28 @@
 
 
 <!-- ═══════════════════════════════════════════
+     ADS
+═══════════════════════════════════════════ -->
+<section id="ads" class="section section-alt">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="section-tag" data-lang="vi">Quảng Cáo</span>
+      <span class="section-tag" data-lang="en">Advertising</span>
+      <h2 class="section-title" data-lang="vi">Sản Phẩm &amp; Ưu Đãi Gợi Ý</h2>
+      <h2 class="section-title" data-lang="en">Suggested Products &amp; Offers</h2>
+      <p class="section-subtitle" data-lang="vi">Một số liên kết dưới đây là liên kết tiếp thị (affiliate): website có thể nhận hoa hồng khi bạn mua hàng qua liên kết, bạn không phải trả thêm chi phí.</p>
+      <p class="section-subtitle" data-lang="en">Some links below are affiliate links: this website may earn a commission when you buy through them, at no extra cost to you.</p>
+    </div>
+    <div class="ad-grid" id="adGrid"></div>
+    <p class="music-empty" id="adEmpty">
+      <span data-lang="vi">🛍 Mục này đang được cập nhật.</span>
+      <span data-lang="en">🛍 This section is being updated.</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
      EVENT
 ═══════════════════════════════════════════ -->
 <section id="event">
@@ -3131,6 +3169,51 @@
       grid.appendChild(card);
     });
     document.getElementById('musicEmpty').style.display = grid.children.length ? 'none' : '';
+  })();
+
+  // ─ Ads list: to add a link, paste it into ADS below.
+  //   type: 'affiliate' (link tiếp thị) or 'digital' (sản phẩm số). img, price, descVi, descEn are optional.
+  //   { url: 'https://...', type: 'affiliate', vi: 'Tên sản phẩm', en: 'Product name', descVi: 'Mô tả ngắn', descEn: 'Short description', img: 'images/x.jpg', price: '199.000đ' },
+  const ADS = [
+  ];
+  const AD_TYPES = { affiliate: ['Liên kết tiếp thị', 'Affiliate'], digital: ['Sản phẩm số', 'Digital product'] };
+  (function renderAds() {
+    const grid = document.getElementById('adGrid');
+    const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
+    const bilingual = (parent, tag, cls, vi, en) => {
+      [['vi', vi], ['en', en || vi]].forEach(([lang, text]) => {
+        const e = el(tag, cls, text); e.dataset.lang = lang; parent.appendChild(e);
+      });
+    };
+    ADS.forEach(a => {
+      if (!/^https?:\/\//.test(a.url || '')) return;
+      const card = el('div', 'ad-card');
+      if (a.img) {
+        const wrap = el('div', 'ad-img');
+        const i = el('img');
+        i.src = a.img; i.alt = a.vi; i.loading = 'lazy';
+        i.onerror = () => wrap.remove();
+        wrap.appendChild(i);
+        card.appendChild(wrap);
+      }
+      const body = el('div', 'ad-body');
+      const t = AD_TYPES[a.type] || AD_TYPES.affiliate;
+      bilingual(body, 'span', 'ad-badge', t[0], t[1]);
+      bilingual(body, 'h3', '', a.vi, a.en);
+      if (a.descVi) bilingual(body, 'p', '', a.descVi, a.descEn);
+      if (a.price) body.appendChild(el('div', 'ad-price', a.price));
+      const cta = el('a', 'btn btn-primary ad-cta');
+      cta.href = a.url;
+      cta.target = '_blank';
+      cta.rel = a.type === 'digital' ? 'noopener' : 'sponsored nofollow noopener';
+      [['vi', 'Xem ngay ↗'], ['en', 'View now ↗']].forEach(([lang, text]) => {
+        const s = el('span', '', text); s.dataset.lang = lang; cta.appendChild(s);
+      });
+      body.appendChild(cta);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+    document.getElementById('adEmpty').style.display = grid.children.length ? 'none' : '';
   })();
 
   // ─ Language toggle
