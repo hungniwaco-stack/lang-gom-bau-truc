@@ -1016,6 +1016,33 @@
       margin-bottom: 28px;
     }
 
+    .event-side { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .event-poster {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+      transition: transform 0.2s;
+    }
+    .event-poster:hover { transform: translateY(-3px); }
+    .event-poster img { width: 100%; display: block; }
+    .event-side .event-countdown { align-self: stretch; padding: 20px 24px; }
+    .event-schedule { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 10px; }
+    .event-schedule li {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      color: #fff;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+    }
+    .event-schedule b { color: var(--gold); }
     .event-countdown {
       background: rgba(0,0,0,0.2);
       border-radius: 16px;
@@ -2518,25 +2545,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <p data-lang="vi">Kỳ lễ hội đầu tiên dành cho gốm Chăm Bàu Trúc, do UBND xã Ninh Phước tổ chức, gắn với Lễ hội Katê của đồng bào Chăm Bàlamôn. Du khách xem nghệ nhân trình diễn làm gốm, tham quan triển lãm gốm, dệt thổ cẩm Mỹ Nghiệp, sản phẩm OCOP và ẩm thực; tối 10/10 có chương trình nghệ thuật "Hồn gốm Bàu Trúc", ngày 11/10 có hội thảo khoa học về nghệ thuật làm gốm của người Chăm.</p>
         <p data-lang="en">The first festival dedicated to Bau Truc Cham pottery, organized by Ninh Phuoc Commune alongside the Kate Festival of the Balamon Cham community. Visitors can watch artisans demonstrate pottery-making and explore exhibitions of pottery, My Nghiep brocade weaving, OCOP products and local food; the evening of 10 October features the "Soul of Bau Truc Pottery" art program, and 11 October a scientific seminar on Cham pottery-making.</p>
+        <ul class="event-schedule">
+          <li><span class="es-ico">📍</span><span data-lang="vi"><b>Địa điểm:</b> Quảng trường xã Ninh Phước</span><span data-lang="en"><b>Venue:</b> Ninh Phuoc Commune Square</span></li>
+          <li><span class="es-ico">🎆</span><span data-lang="vi"><b>Khai mạc:</b> 19h30, ngày 10/10/2026</span><span data-lang="en"><b>Opening:</b> 7:30 PM, 10 October 2026</span></li>
+          <li><span class="es-ico">🛕</span><span data-lang="vi"><b>Lễ mở đền Po Klaong Car:</b> 8h00, ngày 11/10/2026</span><span data-lang="en"><b>Po Klaong Car temple-opening ceremony:</b> 8:00 AM, 11 October 2026</span></li>
+          <li><span class="es-ico">🎊</span><span data-lang="vi"><b>Bế mạc:</b> 19h30, ngày 12/10/2026</span><span data-lang="en"><b>Closing:</b> 7:30 PM, 12 October 2026</span></li>
+        </ul>
         <a href="https://baokhanhhoa.vn/van-hoa/202610/lang-gom-truoc-ngay-vao-hoi-96307f2/" target="_blank" rel="noopener" class="btn btn-primary" data-lang="vi" style="margin-right:10px">Xem Chi Tiết Lễ Hội ↗</a>
         <a href="https://baokhanhhoa.vn/van-hoa/202610/lang-gom-truoc-ngay-vao-hoi-96307f2/" target="_blank" rel="noopener" class="btn btn-primary" data-lang="en" style="margin-right:10px">Festival Details ↗</a>
         <a href="https://baokhanhhoa.vn/van-hoa/202610/san-sang-vao-hoi-kate-3772b17/" target="_blank" rel="noopener" class="btn btn-outline" data-lang="vi" style="margin-right:10px">Sẵn Sàng Vào Hội Katê ↗</a>
         <a href="https://baokhanhhoa.vn/van-hoa/202610/san-sang-vao-hoi-kate-3772b17/" target="_blank" rel="noopener" class="btn btn-outline" data-lang="en" style="margin-right:10px">Ready for the Kate Festival ↗</a>
       </div>
-      <div class="event-countdown fade-up">
+      <div class="event-side fade-up">
+      <a class="event-poster" href="images/le-hoi-gom-cham-poster.webp" target="_blank" rel="noopener" title="Xem poster đầy đủ">
+        <img src="images/le-hoi-gom-cham-poster.webp" alt="Poster Lễ hội Gốm Chăm Bàu Trúc lần thứ I – năm 2026, 10–12/10/2026, Quảng trường xã Ninh Phước" loading="lazy" />
+      </a>
+      <div class="event-countdown">
         <div class="event-date-big">10–12</div>
         <div class="event-month" data-lang="vi">Tháng 10, 2026</div>
         <div class="event-month" data-lang="en">October 2026</div>
         <div class="event-divider"></div>
         <div class="event-meta">
-          <span data-lang="vi">📍 Xã Ninh Phước, Khánh Hòa<br/>🏺 3 ngày triển lãm, trình diễn<br/>🎊 Gắn với Lễ hội Katê</span>
-          <span data-lang="en">📍 Ninh Phuoc Commune, Khanh Hoa<br/>🏺 3 days of exhibitions &amp; demos<br/>🎊 Held with the Kate Festival</span>
+          <span data-lang="vi">📍 Quảng trường xã Ninh Phước<br/>🏺 3 ngày triển lãm, trình diễn<br/>🎊 Gắn với Lễ hội Katê</span>
+          <span data-lang="en">📍 Ninh Phuoc Commune Square<br/>🏺 3 days of exhibitions &amp; demos<br/>🎊 Held with the Kate Festival</span>
         </div>
         <div class="event-live">
           <span class="event-dot"></span>
           <span data-lang="vi">Sắp diễn ra</span>
           <span data-lang="en">Coming Soon</span>
         </div>
+      </div>
       </div>
     </div>
   </div>
