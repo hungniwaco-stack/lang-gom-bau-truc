@@ -332,10 +332,18 @@
     .news-track a::before { content: '◆'; color: var(--gold); font-size: 0.6rem; margin-right: 10px; }
     .news-track a:hover { color: var(--gold); }
     @keyframes newsScroll { to { transform: translateX(-50%); } }
+    .news-more { display: none; }
     @media (prefers-reduced-motion: reduce) {
+      .news-ticker { align-items: flex-start; }
       .news-track { animation: none; width: auto; flex-wrap: wrap; }
       .news-track a { white-space: normal; padding: 8px 20px; }
+      .news-viewport { max-height: 76px; }
+      .news-ticker.expanded .news-viewport { max-height: 50vh; overflow-y: auto; }
       .news-viewport .news-track a[aria-hidden="true"] { display: none !important; }
+      .news-more { display: block; flex: none; background: none; border: 0; color: var(--gold); font-size: 0.78rem; font-weight: 600; padding: 11px 16px; cursor: pointer; }
+      .news-more .less { display: none; }
+      .news-ticker.expanded .news-more .more { display: none; }
+      .news-ticker.expanded .news-more .less { display: inline; }
     }
 
     /* ─── MUSIC ─── */
@@ -1668,6 +1676,10 @@
         <a href="https://baokhanhhoa.vn/van-hoa/202610/san-sang-vao-hoi-kate-3772b17/" target="_blank" rel="noopener" data-lang="en">Khanh Hoa Newspaper: Ready for the Kate Festival</a>
       </div>
     </div>
+    <button type="button" class="news-more" id="newsMore">
+      <span data-lang="vi"><b class="more">Xem thêm ▾</b><b class="less">Thu gọn ▴</b></span>
+      <span data-lang="en"><b class="more">More ▾</b><b class="less">Less ▴</b></span>
+    </button>
   </div>
   <div class="hero-content">
     <div class="hero-badge">
@@ -3107,6 +3119,8 @@
   const setNewsSpeed = () => { newsTrack.style.animationDuration = newsTrack.scrollWidth / 2 / 40 + 's'; };
   setNewsSpeed();
   window.addEventListener('load', setNewsSpeed);
+  document.getElementById('newsMore').addEventListener('click', e =>
+    e.currentTarget.closest('.news-ticker').classList.toggle('expanded'));
 
   // ─ Music list: to add a track, paste its YouTube link into MUSIC below.
   //   cat = 'ninh-phuoc' (Ninh Phước) or 'cham' (Văn hóa Chăm); vi/en = titles.
