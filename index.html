@@ -296,6 +296,47 @@
       50% { transform: translateX(-50%) translateY(6px); }
     }
 
+    /* ─── NEWS TICKER ─── */
+    .news-ticker {
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      background: rgba(26,15,8,0.72);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(243,156,18,0.35);
+      text-align: left;
+    }
+    .news-label {
+      flex: none;
+      background: var(--terra);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 11px 16px;
+    }
+    .news-viewport { flex: 1; overflow: hidden; }
+    .news-track { display: flex; width: max-content; animation: newsScroll 45s linear infinite; }
+    .news-viewport:hover .news-track { animation-play-state: paused; }
+    .news-track a {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.85rem;
+      padding: 11px 28px;
+      white-space: nowrap;
+    }
+    .news-track a::before { content: '◆'; color: var(--gold); font-size: 0.6rem; margin-right: 10px; }
+    .news-track a:hover { color: var(--gold); }
+    @keyframes newsScroll { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .news-track { animation: none; }
+      .news-viewport { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+    }
+
     /* ─── STATS BAR ─── */
     .stats-bar {
       background: var(--charcoal);
@@ -1553,6 +1594,19 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-decor"></div>
+  <div class="news-ticker">
+    <div class="news-label"><span data-lang="vi">Tin mới</span><span data-lang="en">Latest</span></div>
+    <div class="news-viewport">
+      <div class="news-track" id="newsTrack">
+        <a href="https://www.facebook.com/reel/1825726608855091" target="_blank" rel="noopener" data-lang="vi">Truyền hình Khánh Hòa: Làng gốm Bàu Trúc tất bật chuẩn bị cho Lễ hội gốm Chăm</a>
+        <a href="https://www.facebook.com/reel/1825726608855091" target="_blank" rel="noopener" data-lang="en">Khanh Hoa TV: Bau Truc pottery village busy preparing for the Cham Pottery Festival</a>
+        <a href="https://baokhanhhoa.vn/van-hoa/202610/lang-gom-truoc-ngay-vao-hoi-96307f2/" target="_blank" rel="noopener" data-lang="vi">Báo Khánh Hòa: Làng gốm trước ngày vào hội</a>
+        <a href="https://baokhanhhoa.vn/van-hoa/202610/lang-gom-truoc-ngay-vao-hoi-96307f2/" target="_blank" rel="noopener" data-lang="en">Khanh Hoa Newspaper: The village before the festival</a>
+        <a href="https://baokhanhhoa.vn/van-hoa/202610/san-sang-vao-hoi-kate-3772b17/" target="_blank" rel="noopener" data-lang="vi">Báo Khánh Hòa: Sẵn sàng vào hội Katê</a>
+        <a href="https://baokhanhhoa.vn/van-hoa/202610/san-sang-vao-hoi-kate-3772b17/" target="_blank" rel="noopener" data-lang="en">Khanh Hoa Newspaper: Ready for the Kate Festival</a>
+      </div>
+    </div>
+  </div>
   <div class="hero-content">
     <div class="hero-badge">
       🏺 <span data-lang="vi">Di sản Phi vật thể UNESCO • 2022</span>
@@ -2955,6 +3009,15 @@
     a.addEventListener('click', () => {
       document.getElementById('navLinks').classList.remove('open');
     });
+  });
+
+  // ─ News ticker: duplicate items for a seamless loop
+  const newsTrack = document.getElementById('newsTrack');
+  [...newsTrack.children].forEach(a => {
+    const c = a.cloneNode(true);
+    c.setAttribute('aria-hidden', 'true');
+    c.tabIndex = -1;
+    newsTrack.appendChild(c);
   });
 
   // ─ Language toggle
