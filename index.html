@@ -998,10 +998,92 @@
     }
     .event-text { color: #fff; }
     .event-text .section-tag {
-      color: var(--gold);
+      color: var(--charcoal);
       border-color: var(--gold);
-      background: rgba(243,156,18,0.1);
+      background: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      padding: 8px 22px;
+      margin-bottom: 20px;
+      animation: badgePulse 3s ease-in-out infinite;
     }
+    .event-text .section-tag::before { content: '🎉 '; }
+
+    /* ─── EVENT SPOTLIGHT (shown on arrival) ─── */
+    .spot-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(10,5,2,0.72);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .spot-overlay.open { display: flex; }
+    .spot-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: center;
+      width: 100%;
+      max-width: 820px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 28px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 60%, #5A1F08 100%);
+      border: 1px solid rgba(243,156,18,0.6);
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+      animation: spotIn 0.45s ease both;
+    }
+    @keyframes spotIn { from { opacity: 0; transform: translateY(24px) scale(0.97); } to { opacity: 1; transform: none; } }
+    .spot-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .spot-close:hover { background: rgba(0,0,0,0.55); }
+    .spot-poster { display: block; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .spot-poster img { display: block; width: 100%; height: auto; }
+    .spot-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 18px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+    .spot-body h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); color: #fff; margin-bottom: 6px; }
+    .spot-date { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
+    .spot-list { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 8px; font-size: 0.95rem; color: rgba(255,255,255,0.9); }
+    .spot-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .spot-actions .btn { padding: 12px 24px; }
+    .spot-later { background: transparent; border: 1px solid rgba(255,255,255,0.5); color: #fff; }
+    .spot-later:hover { background: rgba(255,255,255,0.12); }
+    @media (max-width: 700px) {
+      .spot-overlay { align-items: flex-end; padding: 0; }
+      .spot-card { grid-template-columns: 1fr; gap: 0; max-height: 88vh; border-radius: 18px 18px 0 0; padding: 22px 20px 24px; }
+      .spot-poster { display: none; }
+      .spot-date { font-size: 1.7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .spot-card { animation: none; } }
     .event-text .section-title { color: #fff; margin-bottom: 12px; }
     .event-theme {
       font-style: italic;
@@ -3088,7 +3170,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════ -->
+<div class="spot-overlay" id="spotlight" role="dialog" aria-modal="true" aria-labelledby="spotTitle">
+  <div class="spot-card">
+    <button type="button" class="spot-close" id="spotClose" aria-label="Đóng / Close">✕</button>
+    <a class="spot-poster" href="#event" data-spot-go>
+      <img src="images/le-hoi-gom-cham-poster.webp" alt="Poster Lễ hội Gốm Chăm Bàu Trúc lần thứ I – năm 2026" width="526" height="789" />
+    </a>
+    <div class="spot-body">
+      <span class="spot-badge"><span data-lang="vi">🎉 Sự kiện đặc biệt</span><span data-lang="en">🎉 Special event</span></span>
+      <h2 id="spotTitle"><span data-lang="vi">Lễ Hội Gốm Chăm Bàu Trúc Lần Thứ I</span><span data-lang="en">1st Bau Truc Cham Pottery Festival</span></h2>
+      <div class="spot-date"><span data-lang="vi">10–12/10/2026</span><span data-lang="en">10–12 October 2026</span></div>
+      <ul class="spot-list">
+        <li>📍 <span data-lang="vi">Quảng trường xã Ninh Phước</span><span data-lang="en">Ninh Phuoc Commune Square</span></li>
+        <li>🎆 <span data-lang="vi">Khai mạc: 19h30, ngày 10/10</span><span data-lang="en">Opening: 7:30 PM, 10 October</span></li>
+        <li>🛕 <span data-lang="vi">Lễ mở đền Po Klaong Car: 8h00, ngày 11/10</span><span data-lang="en">Po Klaong Car temple ceremony: 8:00 AM, 11 October</span></li>
+        <li>🎊 <span data-lang="vi">Bế mạc: 19h30, ngày 12/10</span><span data-lang="en">Closing: 7:30 PM, 12 October</span></li>
+      </ul>
+      <div class="spot-actions">
+        <a href="#event" class="btn btn-primary" data-spot-go><span data-lang="vi">Xem chi tiết</span><span data-lang="en">See details</span></a>
+        <button type="button" class="btn spot-later" id="spotLater"><span data-lang="vi">Để sau</span><span data-lang="en">Later</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  // ─ Event spotlight: shown once per visit on arrival, only until the festival ends
+  (function () {
+    const box = document.getElementById('spotlight');
+    let seen = false;
+    try { seen = sessionStorage.getItem('spotSeen') === '1'; } catch (e) {}
+    if (seen || Date.now() > Date.parse('2026-10-13T00:00:00+07:00')) return;
+    const close = () => {
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+      try { sessionStorage.setItem('spotSeen', '1'); } catch (e) {}
+    };
+    box.addEventListener('click', e => { if (e.target === box) close(); });
+    document.getElementById('spotClose').addEventListener('click', close);
+    document.getElementById('spotLater').addEventListener('click', close);
+    box.querySelectorAll('[data-spot-go]').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+    setTimeout(() => {
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('spotClose').focus();
+    }, 900);
+  })();
+
   // ─ Navbar scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
