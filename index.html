@@ -1599,6 +1599,10 @@
     <div class="news-label"><span data-lang="vi">Tin mới</span><span data-lang="en">Latest</span></div>
     <div class="news-viewport">
       <div class="news-track" id="newsTrack">
+        <a href="https://www.facebook.com/share/v/1DG7nJek54/" target="_blank" rel="noopener" data-lang="vi">Video dự thi “Ninh Phước gọi mời” – Review điểm đến du lịch, văn hóa Ninh Phước 2026</a>
+        <a href="https://www.facebook.com/share/v/1DG7nJek54/" target="_blank" rel="noopener" data-lang="en">Contest video “Ninh Phuoc Invites You” – Review Ninh Phuoc Tourism &amp; Culture 2026</a>
+        <a href="https://www.facebook.com/share/v/19cU8hfcp8/" target="_blank" rel="noopener" data-lang="vi">Video dự thi “Làng gốm Bàu Trúc – Điểm trải nghiệm thú vị” – Review điểm đến du lịch, văn hóa Ninh Phước 2026</a>
+        <a href="https://www.facebook.com/share/v/19cU8hfcp8/" target="_blank" rel="noopener" data-lang="en">Contest video “Bau Truc Pottery Village – A Fun Place to Experience” – Review Ninh Phuoc Tourism &amp; Culture 2026</a>
         <a href="https://www.facebook.com/share/v/19VnMgvSqo/" target="_blank" rel="noopener" data-lang="vi">Video dự thi “Làng Gốm Bàu Trúc – Báu vật di sản văn hóa Chăm giữa lòng Ninh Phước” – Review điểm đến du lịch, văn hóa Ninh Phước 2026</a>
         <a href="https://www.facebook.com/share/v/19VnMgvSqo/" target="_blank" rel="noopener" data-lang="en">Contest video “Bau Truc Pottery Village – A Cham Cultural Heritage Treasure in the Heart of Ninh Phuoc” – Review Ninh Phuoc Tourism &amp; Culture 2026</a>
         <a href="https://www.facebook.com/share/v/19ZQwhHSUa/" target="_blank" rel="noopener" data-lang="vi">Video dự thi “Làng nghề Dệt thổ cẩm – văn hóa người Chăm” – Review điểm đến du lịch, văn hóa Ninh Phước 2026</a>
@@ -3030,6 +3034,9 @@
     c.tabIndex = -1;
     newsTrack.appendChild(c);
   });
+  const setNewsSpeed = () => { newsTrack.style.animationDuration = newsTrack.scrollWidth / 2 / 40 + 's'; };
+  setNewsSpeed();
+  window.addEventListener('load', setNewsSpeed);
 
   // ─ Language toggle
   let currentLang = 'vi';
@@ -3040,6 +3047,7 @@
       currentLang === 'vi' ? '🇬🇧 EN' : '🇻🇳 VI';
     document.documentElement.lang = currentLang;
     document.getElementById('navLinks').classList.remove('open');
+    setNewsSpeed();
   }
 
   // ─ Article modals
