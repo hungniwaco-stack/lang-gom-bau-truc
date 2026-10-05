@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanhoacham.hungniwaco.com/sitemap.xml
