@@ -388,6 +388,13 @@
     .shop-body h3 { font-size: 1rem; color: var(--charcoal); }
     .shop-body p { font-size: 0.85rem; color: var(--text-light); }
     .shop-price { font-weight: 700; color: var(--terra-dark); }
+    #shop:not(.expanded) .shop-extra { display: none; }
+    .shop-more-wrap { text-align: center; margin-top: 28px; }
+    .shop-more { background: #fff; border: 1px solid var(--terra); color: var(--terra); border-radius: 24px; padding: 10px 26px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
+    .shop-more:hover { background: var(--terra); color: #fff; }
+    .shop-more .less { display: none; }
+    #shop.expanded .shop-more .more { display: none; }
+    #shop.expanded .shop-more .less { display: inline; }
     .shop-cta { margin-top: auto; align-self: flex-start; padding: 9px 20px; font-size: 0.85rem; }
     @media (max-width: 900px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .shop-grid { grid-template-columns: 1fr; } }
@@ -2468,6 +2475,12 @@
       <p class="section-subtitle" data-lang="en">Some links below are affiliate links: this website may earn a commission when you buy through them, at no extra cost to you.</p>
     </div>
     <div class="shop-grid" id="shopGrid"></div>
+    <div class="shop-more-wrap" id="shopMoreWrap" style="display:none">
+      <button type="button" class="shop-more" id="shopMore">
+        <span data-lang="vi"><b class="more">Xem thêm sản phẩm ▾</b><b class="less">Thu gọn ▴</b></span>
+        <span data-lang="en"><b class="more">Show more products ▾</b><b class="less">Show less ▴</b></span>
+      </button>
+    </div>
     <p class="music-empty" id="shopEmpty">
       <span data-lang="vi">🛍 Mục này đang được cập nhật.</span>
       <span data-lang="en">🛍 This section is being updated.</span>
@@ -3159,6 +3172,11 @@
       grid.appendChild(card);
     });
     document.getElementById('shopEmpty').style.display = grid.children.length ? 'none' : '';
+    const SHOP_LIMIT = 9;
+    [...grid.children].slice(SHOP_LIMIT).forEach(c => c.classList.add('shop-extra'));
+    document.getElementById('shopMoreWrap').style.display = grid.children.length > SHOP_LIMIT ? '' : 'none';
+    document.getElementById('shopMore').addEventListener('click', () =>
+      document.getElementById('shop').classList.toggle('expanded'));
   })();
 
   // ─ Language toggle
