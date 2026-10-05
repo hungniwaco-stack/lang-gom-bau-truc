@@ -3135,7 +3135,7 @@
       }
       const body = el('div', 'shop-body');
       const t = AD_TYPES[a.type] || AD_TYPES.affiliate;
-      bilingual(body, 'span', 'shop-badge', t[0], t[1]);
+      if (a.type === 'digital') bilingual(body, 'span', 'shop-badge', t[0], t[1]);
       bilingual(body, 'h3', '', a.vi, a.en);
       if (a.descVi) bilingual(body, 'p', '', a.descVi, a.descEn);
       if (a.price) body.appendChild(el('div', 'shop-price', a.price));
